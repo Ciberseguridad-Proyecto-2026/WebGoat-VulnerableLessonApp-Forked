@@ -1,0 +1,101 @@
+# DevSecOps pipeline - OWASP WebGoat fork (SSDLC)
+#
+# Jobs:
+#   secretos -> [Estudiante B] secret detection (gitleaks / Semgrep secrets)
+#   sast     -> [Estudiante B] Semgrep / CodeQL, SARIF artifact
+#   sca      -> [Estudiante C] Syft SBOM (CycloneDX) + Grype gate (fail on Critical)
+#
+# Every third-party action is pinned to a full commit SHA (tag in the trailing comment)
+# so Dependabot (github-actions ecosystem) can propose reviewed upgrades.
+
+name: devsecops
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Least privilege at workflow level; jobs only read the repository.
+permissions:
+  contents: read
+
+concurrency:
+  group: devsecops-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sca:
+    name: sca
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@d1374f8ac74474200d16ef8ecee22c7ae7a51880 # v6.3.0
+        with:
+          distribution: temurin
+          java-version: "25"
+          cache: maven
+
+      # Build the executable JAR so the SBOM describes exactly what ships
+      # (all direct and transitive dependencies packed in BOOT-INF/lib).
+      # Quality gates (tests, Spotless, Checkstyle, PMD) belong to other jobs.
+      - name: Build WebGoat JAR (Maven Wrapper 3.9)
+        run: |
+          # mvnw is stored without the executable bit, so call it through sh.
+          sh ./mvnw -B -ntp -DskipTests -Dspotless.check.skip=true -Dcheckstyle.skip -Dpmd.skip package
+          cp target/webgoat-*.jar target/webgoat.jar
+
+      - name: Generate SBOM (Syft, CycloneDX JSON)
+        uses: anchore/sbom-action@66cbf4bc1f1c0d2edc94016e65bc221b6bb0ad6c # v0.24.3
+        with:
+          file: target/webgoat.jar
+          format: cyclonedx-json
+          output-file: sbom.cdx.json
+          artifact-name: sbom.cdx.json
+          upload-artifact: true
+          upload-release-assets: false
+
+      # Real gate: the job fails when Grype finds a vulnerability of severity
+      # Critical or higher. No "|| true" and no continue-on-error.
+      - name: Scan SBOM (Grype gate, severity-cutoff critical)
+        id: grype
+        uses: anchore/scan-action@27805bf3b4e84b4a5c980df22ed233c00390a439 # v7.4.2
+        with:
+          sbom: sbom.cdx.json
+          fail-build: true
+          severity-cutoff: critical
+          output-format: sarif
+          output-file: grype.sarif
+
+      - name: Summarize Grype findings
+        if: always()
+        run: |
+          if [ -f grype.sarif ]; then
+            {
+              echo "## Grype (SCA) - gate: severity-cutoff critical"
+              echo ""
+              echo "| Severity | Count |"
+              echo "|---|---|"
+              jq -r '.runs[0] as $r
+                | ($r.tool.driver.rules | map({(.id): (.properties["security-severity"] | tonumber)}) | add) as $sev
+                | [$r.results[] | $sev[.ruleId]
+                   | if . >= 9 then "Critical" elif . >= 7 then "High" elif . >= 4 then "Medium" else "Low" end]
+                | group_by(.) | map("| \(.[0]) | \(length) |") | .[]' grype.sarif
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload Grype SARIF
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: grype.sarif
+          path: grype.sarif
+          if-no-files-found: warn
+          retention-days: 14
