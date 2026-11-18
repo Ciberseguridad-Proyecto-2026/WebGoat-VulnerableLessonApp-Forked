@@ -1,0 +1,49 @@
+# OWASP Dependency-Track (local, Fase 4 - Estudiante C)
+#
+# Based on the official v4 compose file (https://docs.dependencytrack.org/getting-started/deploy-docker/).
+# Version 4.14.x is pinned on purpose: Dependency-Track 5.x removed the NVD API 2.0 mirror
+# (and therefore the NVD API key setting) in favour of the bulk JSON feeds, while this
+# delivery requires mirroring the NVD with the team's NVD API key.
+#
+# Usage (Git Bash / PowerShell, from this folder):
+#   docker compose up -d
+#   Frontend: http://localhost:8080  (admin / admin, password change forced on first login)
+#   API:      http://localhost:8081
+#
+# Ports are bound to 127.0.0.1 only. Stop WebGoat (also 8080) before starting this stack,
+# or change the frontend port mapping below.
+# The NVD API key is configured at runtime (Administration -> Vulnerability Sources -> NVD),
+# never in this file.
+
+name: dependency-track
+
+services:
+  apiserver:
+    image: dependencytrack/apiserver:4.14.6
+    deploy:
+      resources:
+        limits:
+          memory: 5g
+        reservations:
+          memory: 3g
+    environment:
+      # Embedded H2 database is enough for a local evaluation instance.
+      ALPINE_METRICS_ENABLED: "false"
+    ports:
+      - "127.0.0.1:8081:8080"
+    volumes:
+      - "dependency-track:/data"
+    restart: unless-stopped
+
+  frontend:
+    image: dependencytrack/frontend:4.14.6
+    depends_on:
+      - apiserver
+    environment:
+      API_BASE_URL: "http://localhost:8081"
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: unless-stopped
+
+volumes:
+  dependency-track: {}
