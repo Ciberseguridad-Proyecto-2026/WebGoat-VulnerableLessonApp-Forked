@@ -1,0 +1,10 @@
+flowchart LR
+  EST["Estudiante / Atacante"]
+  ADM["Administrador de la plataforma"]
+  subgraph SYS["WebGoat + WebWolf (contenedor Docker)"]
+    P0["Plataforma de formación<br/>WebGoat :8080 · WebWolf :9090"]
+  end
+  EST -->|"credenciales, payloads, archivos"| P0
+  P0 -->|"lecciones, feedback, correo interno"| EST
+  ADM -->|"despliegue y configuración"| P0
+  P0 -->|"logs y métricas (actuator)"| ADM

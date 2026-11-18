@@ -1,0 +1,20 @@
+sequenceDiagram
+  autonumber
+  actor E as Estudiante
+  participant N as Navegador
+  participant S as Spring Security
+  participant C as Controlador de lección
+  participant A as AssignmentEndpoint
+  participant T as LessonTrackerInterceptor
+  participant DB as HSQLDB
+
+  E->>N: Resuelve la lección
+  N->>S: POST /WebGoat/... (credenciales o sesión)
+  S->>S: Autentica y gestiona JSESSIONID
+  S->>C: Petición autorizada
+  C->>A: Ejecuta la asignación
+  A->>DB: Consulta o modifica datos de la lección
+  A-->>T: Devuelve AttackResult
+  T->>DB: Guarda progreso (solved / failed)
+  T-->>N: Respuesta JSON con feedback
+  N-->>E: Muestra resultado y pistas
