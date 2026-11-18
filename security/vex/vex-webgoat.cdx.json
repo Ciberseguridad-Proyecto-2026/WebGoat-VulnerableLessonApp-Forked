@@ -1,0 +1,1157 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.5",
+  "serialNumber" : "urn:uuid:a1f89cea-5a62-461a-8f57-a28f1972d95d",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-11-18T00:30:23Z",
+    "tools" : {
+      "components" : [
+        {
+          "type" : "application",
+          "supplier" : {
+            "name" : "OWASP"
+          },
+          "name" : "Dependency-Track",
+          "version" : "4.14.6"
+        }
+      ]
+    },
+    "component" : {
+      "type" : "file",
+      "bom-ref" : "90220a3d-325b-4666-b8f4-3218dd39d906",
+      "name" : "OWASP-WebGoat",
+      "version" : "2026.6-SNAPSHOT",
+      "description" : "Fork de OWASP WebGoat (aplicacion intencionalmente vulnerable) - Fase 4 SSDLC"
+    }
+  },
+  "vulnerabilities" : [
+    {
+      "bom-ref" : "0a2913ad-4f1b-488a-9dd7-3ee6f050ebd4",
+      "id" : "GHSA-j288-q9x7-2f5v",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        674
+      ],
+      "description" : "Uncontrolled Recursion vulnerability in Apache Commons Lang.\n\nThis issue affects Apache Commons Lang: Starting with commons-lang:commons-lang 2.0 to 2.6, and, from org.apache.commons:commons-lang3 3.0 before 3.18.0.\n\nThe methods ClassUtils.getClass(...) can throw StackOverflowError on very long inputs. Because an Error is usually not handled by applications and libraries, a StackOverflowError could cause an application to stop.\n\nUsers are recommended to upgrade to version 3.18.0, which fixes the issue.",
+      "published" : "2025-07-11T15:31:37Z",
+      "updated" : "2026-09-10T03:50:26Z",
+      "analysis" : {
+        "state" : "not_affected",
+        "justification" : "code_not_reachable",
+        "detail" : "VEX not_affected: WebGoat never calls ClassUtils.getClass(); only caller in the JAR is commons-text ConstantStringLookup, and StringSubstitutor/StringLookupFactory are not used. See security/sca-priorizacion.md"
+      },
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "d115f73f-c255-4a86-b196-f15567258cae",
+      "id" : "GHSA-2p3x-qw9c-25hh",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        400,
+        502,
+        835
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to allocate 100% CPU time on the target system depending on CPU type or parallel execution of such a payload resulting in a denial of service only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.16.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-21341](https://x-stream.github.io/CVE-2021-21341.html).\n\n### Credits\nThe vulnerability was discovered and reported by threedr3am.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-03-22T23:27:51Z",
+      "updated" : "2026-07-08T06:29:26Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "a853f363-e133-4558-a475-a0d4736198fd",
+      "id" : "GHSA-43gc-mjxg-gvrq",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        434,
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to execute arbitrary code only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.16.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-21350](https://x-stream.github.io/CVE-2021-21350.html).\n\n### Credits\nThe vulnerability was discovered and reported by threedr3am.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-03-22T23:29:28Z",
+      "updated" : "2026-07-08T06:27:47Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "c8ea450a-4458-4a23-bb7a-acda36f0fe81",
+      "id" : "GHSA-4hrm-m67v-5cxr",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        434,
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.16.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-21346](https://x-stream.github.io/CVE-2021-21346.html).\n\n### Credits\nwh1t3p1g G5-RD6@IIE found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-03-22T23:28:49Z",
+      "updated" : "2026-07-08T06:29:26Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "05bb3c20-739c-4757-b2d9-2de21c3c683e",
+      "id" : "GHSA-56p8-3fh9-4cvq",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        400,
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to occupy a thread that consumes maximum CPU time and will never return. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.16.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-21348](https://x-stream.github.io/CVE-2021-21348.html).\n\n### Credits\nThe vulnerability was discovered and reported by threedr3am.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-03-22T23:29:09Z",
+      "updated" : "2026-07-08T06:27:23Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "25254796-f25f-41d1-a80a-eec51f580f75",
+      "id" : "GHSA-59jw-jqf4-3wq3",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        434,
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.16.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-21344](https://x-stream.github.io/CVE-2021-21344.html).\n\n### Credits\n钟潦贵 (Liaogui Zhong) found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-03-22T23:28:23Z",
+      "updated" : "2026-07-08T06:29:54Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "214769d3-596d-482b-b2fd-34330a181f17",
+      "id" : "GHSA-74cv-f58x-f9wf",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502,
+        73
+      ],
+      "description" : "### Impact\nThe processed stream at unmarshalling time contains type information to recreate the formerly written objects.  XStream creates therefore new instances based on these type information.  An attacker can manipulate the processed input stream and replace or inject objects, that result in the deletion of a file on the local host. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.16.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-21343](https://x-stream.github.io/CVE-2021-21343.html).\n\n### Credits\n钟潦贵 (Liaogui Zhong) found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-03-22T23:28:13Z",
+      "updated" : "2026-07-08T06:29:35Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "bd879903-4ab4-43c7-bd5a-d80f76dbb757",
+      "id" : "GHSA-f6hm-88x3-mfjv",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502,
+        918
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to request data from internal resources that are not publicly available only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.16.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-21349](https://x-stream.github.io/CVE-2021-21349.html).\n\n### Credits\nThe vulnerability was discovered and reported by threedr3am.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-03-22T23:29:19Z",
+      "updated" : "2026-07-08T06:29:36Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "a12bfa32-fa62-4506-991b-43eb7d35a652",
+      "id" : "GHSA-hrcp-8f3q-4w2c",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        434,
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.16.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-21351](https://x-stream.github.io/CVE-2021-21351.html).\n\n### Credits\nwh1t3p1g G5-RD6@IIE found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-03-22T23:29:37Z",
+      "updated" : "2026-07-08T06:27:44Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "d8ec7dd8-25c2-496a-83ee-a8edcdccde67",
+      "id" : "GHSA-hvv8-336g-rx3m",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502,
+        918
+      ],
+      "description" : "### Impact\nThe processed stream at unmarshalling time contains type information to recreate the formerly written objects. XStream creates therefore new instances based on these type information.  An attacker can manipulate the processed input stream and replace or inject objects, that result in a server-side forgery request. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.16\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-21342](https://x-stream.github.io/CVE-2021-21342.html).\n\n### Credits\n钟潦贵 (Liaogui Zhong) found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-03-22T23:28:01Z",
+      "updated" : "2026-07-08T06:28:42Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "1e4d08cc-1eeb-44d5-b746-3a84bd5c6b84",
+      "id" : "GHSA-hwpc-8xqv-jvj4",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        78,
+        94
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker has sufficient rights to execute commands of the host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.16.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-21345](https://x-stream.github.io/CVE-2021-21345.html).\n\n### Credits\n钟潦贵 (Liaogui Zhong) found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-03-22T23:28:38Z",
+      "updated" : "2026-07-08T06:28:39Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "40c24614-0a8f-4cf7-9596-195c37a961ae",
+      "id" : "GHSA-qpfq-ph7r-qv6f",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        434,
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.16.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-21347](https://x-stream.github.io/CVE-2021-21347.html).\n\n### Credits\nThe vulnerability was discovered and reported by threedr3am.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-03-22T23:29:00Z",
+      "updated" : "2026-07-08T06:29:05Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "2376fe15-3e14-4469-aff8-b55405cf1281",
+      "id" : "GHSA-2q8x-2p7f-574v",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream, if using the version out of the box with Java runtime version 14 to 8 or with JavaFX installed. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nXStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39153](https://x-stream.github.io/CVE-2021-39153.html).\n\n### Credits\nCeclin and YXXX from the Tencent Security Response Center found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:46:49Z",
+      "updated" : "2026-07-08T06:28:20Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "bfecca89-11c5-4f04-b3ee-4afc8fe0122e",
+      "id" : "GHSA-3ccq-5vw3-2p6x",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        434,
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nXStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39149](https://x-stream.github.io/CVE-2021-39149.html).\n\n### Credits\nLai Han of NSFOCUS security team found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:47:28Z",
+      "updated" : "2026-07-08T06:28:07Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "b5e98ee3-2fdd-460c-b76a-a7fa8a1667e2",
+      "id" : "GHSA-64xx-cq4q-mf44",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. A user is only affected if using the version out of the box with JDK 1.7u21 or below.  However, this scenario can be adjusted easily to an external Xalan that works regardless of the version of the Java runtime. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nXStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39139](https://x-stream.github.io/CVE-2021-39139.html).\n\n### Credits\nLai Han of nsfocus security team found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:48:47Z",
+      "updated" : "2026-07-08T06:28:09Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "57c540c9-035d-4280-9292-4cfa0e4d4af7",
+      "id" : "GHSA-6w62-hx7r-mw68",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        434,
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nXStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39154](https://x-stream.github.io/CVE-2021-39154.html).\n\n### Credits\nka1n4t found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:46:38Z",
+      "updated" : "2026-07-08T06:27:58Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "75824352-51ee-4853-ac0e-4f20a290495b",
+      "id" : "GHSA-6wf9-jmg9-vxcc",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502,
+        835
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to allocate 100% CPU time on the target system depending on CPU type or parallel execution of such a payload resulting in a denial of service only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nXStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39140](https://x-stream.github.io/CVE-2021-39140.html).\n\n### Credits\nThe vulnerability was discovered and reported by Lai Han of nsfocus security team.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:48:39Z",
+      "updated" : "2026-07-08T06:27:43Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "522df5d3-7d91-4a17-94e5-25b71ae22ef6",
+      "id" : "GHSA-8jrj-525p-826v",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nXStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39145](https://x-stream.github.io/CVE-2021-39145.html).\n\n### Credits\n李安诺 (Li4n0) from Alibaba Cloud Security Team and Smi1e of DBAPPSecurity WEBIN Lab found and reported the issue independently to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:48:12Z",
+      "updated" : "2026-07-08T06:28:44Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "c6c4d764-8f41-43a5-959e-a379bcc4dff6",
+      "id" : "GHSA-cxfm-5m4g-x7xp",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502,
+        918
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to request data from internal resources that are not publicly available only by manipulating the processed input stream with a Java runtime version 14 to 8. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.18.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39150](https://x-stream.github.io/CVE-2021-39150.html).\n\n### Credits\nLai Han of NSFOCUS security team found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:47:19Z",
+      "updated" : "2026-07-08T06:29:14Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "f004ea9b-855a-4b7c-ab8d-b091237b61ad",
+      "id" : "GHSA-g5w6-mrj7-75h2",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nXStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39141](https://x-stream.github.io/CVE-2021-39141.html).\n\n### Credits\nCeclin and YXXX from the Tencent Security Response Center found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:48:31Z",
+      "updated" : "2026-07-08T06:29:23Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "e728a9a2-600c-4cd9-9533-5e8b0b301f0b",
+      "id" : "GHSA-h7v4-7xg3-hxcc",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nXStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39147](https://x-stream.github.io/CVE-2021-39147.html).\n\n### Credits\nwh1t3p1g from TSRC (Tencent Security Response Center) found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:47:46Z",
+      "updated" : "2026-07-08T06:28:49Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "3663e84c-6088-4bb9-bb6b-24e91a3b9824",
+      "id" : "GHSA-hph2-m3g5-xxv4",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        434,
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nXStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39151](https://x-stream.github.io/CVE-2021-39151.html).\n\n### Credits\nSmi1e of DBAPPSecurity WEBIN Lab found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:47:09Z",
+      "updated" : "2026-07-08T06:28:21Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "cba04602-9502-4931-a5fc-14467dead130",
+      "id" : "GHSA-j9h8-phrw-h4fh",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        306,
+        502,
+        94
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker has sufficient rights to execute commands of the host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nXStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39144](https://x-stream.github.io/CVE-2021-39144.html).\n\n### Credits\n\nCeclin and YXXX from the Tencent Security Response Center found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Email us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-08-25T14:48:19Z",
+      "updated" : "2026-07-08T06:27:23Z",
+      "analysis" : {
+        "state" : "exploitable",
+        "response" : [
+          "will_not_fix"
+        ],
+        "detail" : "VEX affected: CISA KEV, EPSS 0.98, same fromXML entry point as the lesson. P1. Compensating control: isolated/localhost-only deployment."
+      },
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "8ea7290d-d6f1-4b85-8b6d-e95d0e0b5453",
+      "id" : "GHSA-p8pq-r894-fm8f",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nXStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39146](https://x-stream.github.io/CVE-2021-39146.html).\n\n### Credits\nCeclin and YXXX from the Tencent Security Response Center found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:47:57Z",
+      "updated" : "2026-07-08T06:28:59Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "eaefad68-43a8-46c4-bf29-05e2b5fb376f",
+      "id" : "GHSA-qrx8-8545-4wg2",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to load and execute arbitrary code from a remote host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nXStream 1.4.18 uses no longer a blacklist by default, since it cannot be secured for general purpose.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39148](https://x-stream.github.io/CVE-2021-39148.html).\n\n### Credits\nwh1t3p1g from TSRC (Tencent Security Response Center) found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:47:38Z",
+      "updated" : "2026-07-08T06:29:56Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "4a98c548-7061-439a-9d33-0082abdff903",
+      "id" : "GHSA-xw4p-crpj-vjx2",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502,
+        918
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to request data from internal resources that are not publicly available only by manipulating the processed input stream with a Java runtime version 14 to 8. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.18.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-39152](https://x-stream.github.io/CVE-2021-39152.html).\n\n### Credits\nm0d9 of the Security Team of Alibaba Cloud found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2021-08-25T14:46:59Z",
+      "updated" : "2026-09-10T03:49:15Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "8323a7e8-0947-4b47-b000-c828be060768",
+      "id" : "GHSA-4cch-wxpw-8p28",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        918
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to request data from internal resources that are not publicly available only by manipulating the processed input stream.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.15.\n\n### Workarounds\nThe reported vulnerability does not exist running Java 15 or higher.\n\nNo user is affected, who followed the recommendation to setup XStream's Security Framework with a whitelist! Anyone relying on XStream's default blacklist can immediately switch to a whilelist for the allowed types to avoid the vulnerability.\n\nUsers of XStream 1.4.14 or below who still insist to use XStream default blacklist - despite that clear recommendation - can use a workaround depending on their version in use.\n\nUsers of XStream 1.4.14 can simply add two lines to XStream's setup code:\n```Java\nxstream.denyTypes(new String[]{ \"jdk.nashorn.internal.objects.NativeString\" });\nxstream.denyTypesByRegExp(new String[]{ \".*\\\\.ReadAllStream\\\\$FileStream\" });\n```\n\nUsers of XStream 1.4.14 to 1.4.13 can simply add three lines to XStream's setup code:\n```Java\nxstream.denyTypes(new String[]{ \"javax.imageio.ImageIO$ContainsFilter\", \"jdk.nashorn.internal.objects.NativeString\" });\nxstream.denyTypes(new Class[]{ java.lang.ProcessBuilder.class });\nxstream.denyTypesByRegExp(new String[]{ \".*\\\\.ReadAllStream\\\\$FileStream\" });\n```\nUsers of XStream 1.4.12 to 1.4.7 who want to use XStream with a black list will have to setup such a list from scratch and deny at least the following types: _javax.imageio.ImageIO$ContainsFilter_, _java.beans.EventHandler_, _java.lang.ProcessBuilder_, _jdk.nashorn.internal.objects.NativeString.class_, _java.lang.Void_ and _void_ and deny several types by name pattern.\n```Java\nxstream.denyTypes(new String[]{ \"javax.imageio.ImageIO$ContainsFilter\", \"jdk.nashorn.internal.objects.NativeString\" });\nxstream.denyTypes(new Class[]{ java.lang.ProcessBuilder.class, \"jdk.nashorn.internal.objects.NativeString\", java.beans.EventHandler.class, java.lang.ProcessBuilder.class, java.lang.Void.class, void.class });\nxstream.denyTypesByRegExp(new String[]{ \".*\\\\$LazyIterator\", \"javax\\\\.crypto\\\\..*\", \".*\\\\.ReadAllStream\\\\$FileStream\" });\n```\nUsers of XStream 1.4.6 or below can register an own converter to prevent the unmarshalling of the currently know critical types of the Java runtime. It is in fact an updated version of the workaround for CVE-2013-7285:\n```Java\nxstream.registerConverter(new Converter() {\n  public boolean canConvert(Class type) {\n    return type != null && (type == java.beans.EventHandler.class || type == java.lang.ProcessBuilder.class\n        || type.getName().equals(\"javax.imageio.ImageIO$ContainsFilter\") || type.getName().equals(\"jdk.nashorn.internal.objects.NativeString\")\n        || type == java.lang.Void.class || void.class || Proxy.isProxy(type))\n        || type.getName().startsWith(\"javax.crypto.\") || type.getName().endsWith(\"$LazyIterator\") || type.getName().endsWith(\".ReadAllStream$FileStream\"));\n  }\n\n  public Object unmarshal(HierarchicalStreamReader reader, UnmarshallingContext context) {\n    throw new ConversionException(\"Unsupported type due to security reasons.\");\n  }\n\n  public void marshal(Object source, HierarchicalStreamWriter writer, MarshallingContext context) {\n    throw new ConversionException(\"Unsupported type due to security reasons.\");\n  }\n}, XStream.PRIORITY_LOW);\n```\n \n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2020-12-21T16:28:42Z",
+      "updated" : "2026-09-10T03:49:00Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "364bf1f4-5f36-4e91-ac3a-abb57ea798f7",
+      "id" : "GHSA-jfvx-7wrx-43fh",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "medium",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        78
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to delete arbitrary know files on the host as log as the executing process has sufficient rights only by manipulating the processed input stream.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.15.\n\n### Workarounds\nThe reported vulnerability does only exist with a JAX-WS runtime on the classpath.\n\nNo user is affected, who followed the recommendation to setup XStream's Security Framework with a whitelist! Anyone relying on XStream's default blacklist can immediately switch to a whilelist for the allowed types to avoid the vulnerability.\n\nUsers of XStream 1.4.14 or below who still insist to use XStream default blacklist - despite that clear recommendation - can use a workaround depending on their version in use.\n\nUsers of XStream 1.4.14 can simply add two lines to XStream's setup code:\n```Java\nxstream.denyTypes(new String[]{ \"jdk.nashorn.internal.objects.NativeString\" });\nxstream.denyTypesByRegExp(new String[]{ \".*\\\\.ReadAllStream\\\\$FileStream\" });\n```\n\nUsers of XStream 1.4.14 to 1.4.13 can simply add three lines to XStream's setup code:\n```Java\nxstream.denyTypes(new String[]{ \"javax.imageio.ImageIO$ContainsFilter\", \"jdk.nashorn.internal.objects.NativeString\" });\nxstream.denyTypes(new Class[]{ java.lang.ProcessBuilder.class });\nxstream.denyTypesByRegExp(new String[]{ \".*\\\\.ReadAllStream\\\\$FileStream\" });\n```\nUsers of XStream 1.4.12 to 1.4.7 who want to use XStream with a black list will have to setup such a list from scratch and deny at least the following types: _javax.imageio.ImageIO$ContainsFilter_, _java.beans.EventHandler_, _java.lang.ProcessBuilder_, _jdk.nashorn.internal.objects.NativeString.class_, _java.lang.Void_ and _void_ and deny several types by name pattern.\n```Java\nxstream.denyTypes(new String[]{ \"javax.imageio.ImageIO$ContainsFilter\", \"jdk.nashorn.internal.objects.NativeString\" });\nxstream.denyTypes(new Class[]{ java.lang.ProcessBuilder.class, \"jdk.nashorn.internal.objects.NativeString\", java.beans.EventHandler.class, java.lang.ProcessBuilder.class, java.lang.Void.class, void.class });\nxstream.denyTypesByRegExp(new String[]{ \".*\\\\$LazyIterator\", \"javax\\\\.crypto\\\\..*\", \".*\\\\.ReadAllStream\\\\$FileStream\" });\n```\nUsers of XStream 1.4.6 or below can register an own converter to prevent the unmarshalling of the currently know critical types of the Java runtime. It is in fact an updated version of the workaround for CVE-2013-7285:\n```Java\nxstream.registerConverter(new Converter() {\n  public boolean canConvert(Class type) {\n    return type != null && (type == java.beans.EventHandler.class || type == java.lang.ProcessBuilder.class\n        || type.getName().equals(\"javax.imageio.ImageIO$ContainsFilter\") || type.getName().equals(\"jdk.nashorn.internal.objects.NativeString\")\n        || type == java.lang.Void.class || void.class || Proxy.isProxy(type))\n        || type.getName().startsWith(\"javax.crypto.\") || type.getName().endsWith(\"$LazyIterator\") || type.getName().endsWith(\".ReadAllStream$FileStream\"));\n  }\n\n  public Object unmarshal(HierarchicalStreamReader reader, UnmarshallingContext context) {\n    throw new ConversionException(\"Unsupported type due to security reasons.\");\n  }\n\n  public void marshal(Object source, HierarchicalStreamWriter writer, MarshallingContext context) {\n    throw new ConversionException(\"Unsupported type due to security reasons.\");\n  }\n}, XStream.PRIORITY_LOW);\n```\n  \n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2020-12-21T16:28:26Z",
+      "updated" : "2026-07-08T05:59:37Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "585a9201-a022-43d7-944a-05be6592f8d1",
+      "id" : "GHSA-7chv-rrw6-w6fc",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        502,
+        74,
+        94
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker has sufficient rights to execute commands of the host only by manipulating the processed input stream. No user is affected, who followed the recommendation to setup XStream's security framework with a whitelist limited to the minimal required types.\n\n### Patches\nIf you rely on XStream's default blacklist of the Security Framework, you will have to use at least version 1.4.17.\n\n### Workarounds\nSee [workarounds](https://x-stream.github.io/security.html#workaround) for the different versions covering all CVEs.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-29505](https://x-stream.github.io/CVE-2021-29505.html).\n\n### Credits\n\nV3geB1rd, white hat hacker from Tencent Security Response Center found and reported the issue to XStream and provided the required information to reproduce it.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Email us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2021-05-18T18:36:27Z",
+      "updated" : "2026-07-08T06:28:29Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "dcc8654b-d688-4518-bfb1-14e5cab354d6",
+      "id" : "GHSA-7hwc-46rm-65jh",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        20
+      ],
+      "description" : "XStream through 1.4.9, when a certain denyTypes workaround is not used, mishandles attempts to create an instance of the primitive type 'void' during unmarshalling, leading to a remote application crash, as demonstrated by an xstream.fromXML(\"<void/>\") call.",
+      "published" : "2020-06-30T22:48:24Z",
+      "updated" : "2025-05-23T19:46:57Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "6891e7f8-b86d-41e4-a108-c474240c0ac5",
+      "id" : "GHSA-f554-x222-wgf7",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "critical",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        77,
+        78
+      ],
+      "description" : "Xstream API versions up to 1.4.6 and version 1.4.10, if the security framework has not been initialized, may allow a remote attacker to run arbitrary shell commands by manipulating the processed input stream when unmarshaling XML or any supported format. e.g. JSON.",
+      "published" : "2019-05-29T18:05:03Z",
+      "updated" : "2024-03-05T00:01:16Z",
+      "analysis" : {
+        "state" : "exploitable",
+        "response" : [
+          "will_not_fix"
+        ],
+        "detail" : "VEX affected: intentional Vulnerable Components lesson (XStream.fromXML on user input). Compensating control: isolated/localhost-only deployment. Decision deferred to Fase 7."
+      },
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "6d626794-9ff4-467f-8cea-6efc175ad030",
+      "id" : "GHSA-f8cc-g7j8-xxpm",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        121,
+        502,
+        787
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to terminate the application with a stack overflow error resulting in a denial of service only by manipulating the processed input stream.\n\n### Patches\nXStream 1.4.20 handles the stack overflow and raises an InputManipulationException instead.\n\n### Workarounds\nThe only solution is to catch the StackOverflowError in the client code calling XStream.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2022-40151](https://x-stream.github.io/CVE-2022-40151.html).\n\n### Credits\nThe vulnerability was discovered and reported by Henry Lin of the Google OSS-Fuzz team.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2022-12-30T16:58:39Z",
+      "updated" : "2023-11-08T04:10:22Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "e65dfe60-07bc-444d-96eb-20b522a3b7e8",
+      "id" : "GHSA-j563-grx4-pjpv",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        120,
+        121,
+        502,
+        674
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to terminate the application with a stack overflow error resulting in a denial of service only by manipulating the processed input stream.\n\n### Patches\nXStream 1.4.20 handles the stack overflow and raises an InputManipulationException instead.\n\n### Workarounds\nThe attack uses the hash code implementation for collections and maps to force recursive hash calculation causing a stack overflow. Following types of the Java runtime are affected:\n\n- java.util.HashMap\n- java.util.HashSet\n- java.util.Hashtable\n- java.util.LinkedHashMap\n- java.util.LinkedHashSet\n- Other third party collection implementations that use their element's hash code may also be affected\n\nA simple solution is to catch the StackOverflowError in the client code calling XStream.\n\nIf your object graph does not use referenced elements at all, you may simply set the NO_REFERENCE mode:\n```Java\nXStream xstream = new XStream();\nxstream.setMode(XStream.NO_REFERENCES);\n```\n\nIf your object graph contains neither a Hashtable, HashMap nor a HashSet (or one of the linked variants of it) then you can use the security framework to deny the usage of these types:\n```Java\nXStream xstream = new XStream();\nxstream.denyTypes(new Class[]{\n java.util.HashMap.class, java.util.HashSet.class, java.util.Hashtable.class, java.util.LinkedHashMap.class, java.util.LinkedHashSet.class\n});\n```\n\nUnfortunately these types are very common. If you only use HashMap or HashSet and your XML refers these only as default map or set, you may additionally change the default implementation of java.util.Map and java.util.Set at unmarshalling time::\n```Java\nxstream.addDefaultImplementation(java.util.TreeMap.class, java.util.Map.class);\nxstream.addDefaultImplementation(java.util.TreeSet.class, java.util.Set.class);\n```\nHowever, this implies that your application does not care about the implementation of the map and all elements are comparable.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2022-41966](https://x-stream.github.io/CVE-2022-41966.html).\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)\n",
+      "published" : "2022-12-29T01:48:08Z",
+      "updated" : "2024-02-16T08:18:32Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "9770d070-e275-497e-bfbc-d8e144d6c722",
+      "id" : "GHSA-hfq9-hggm-c56q",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        121,
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to terminate the application with a stack overflow error resulting in a denial of service only by manipulating the processed input stream when XStream is configured to use the BinaryStreamDriver.\n\n### Patches\nXStream 1.4.21 detects the manipulation in the binary input stream causing the the stack overflow and raises an InputManipulationException instead.\n\n### Workarounds\nThe only solution is to catch the StackOverflowError in the client code calling XStream if XStream is configured to use the BinaryStreamDriver.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2024-47072](https://x-stream.github.io/CVE-2024-47072.html).\n\n### Credits\nAlexis Challande of Trail Of Bits found and reported the issue to XStream and provided the required information to reproduce it.",
+      "published" : "2024-11-07T21:51:17Z",
+      "updated" : "2026-08-07T08:12:24Z",
+      "analysis" : {
+        "state" : "not_affected",
+        "justification" : "code_not_reachable",
+        "detail" : "VEX not_affected: only BinaryStreamDriver is affected; WebGoat uses new XStream() (XppDriver). See security/sca-priorizacion.md"
+      },
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "b9c19bfc-3a7a-4bf4-bca7-19d9835946e5",
+      "id" : "GHSA-mw36-7c6c-q4q2",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        78
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to run arbitrary shell commands only by manipulating the processed input stream.\n\n### Patches\nIf you rely on XStream's default blacklist of the [Security Framework](https://x-stream.github.io/security.html#framework), you will have to use at least version 1.4.14.\n\n### Workarounds\nNo user is affected, who followed the recommendation to setup XStream's Security Framework with a whitelist! Anyone relying on XStream's default blacklist can immediately switch to a whilelist for the allowed types to avoid the vulnerability.\n\nUsers of XStream 1.4.13 or below who still want to use XStream default blacklist can use a workaround depending on their version in use.\n\nUsers of XStream 1.4.13 can simply add two lines to XStream's setup code:\n```Java\nxstream.denyTypes(new String[]{ \"javax.imageio.ImageIO$ContainsFilter\" });\nxstream.denyTypes(new Class[]{ java.lang.ProcessBuilder.class });\n```\nUsers of XStream 1.4.12 to 1.4.7 who want to use XStream with a black list will have to setup such a list from scratch and deny at least the following types: _javax.imageio.ImageIO$ContainsFilter_, _java.beans.EventHandler_, _java.lang.ProcessBuilder_, _java.lang.Void_ and _void_.\n```Java\nxstream.denyTypes(new String[]{ \"javax.imageio.ImageIO$ContainsFilter\" });\nxstream.denyTypes(new Class[]{ java.lang.ProcessBuilder.class, java.beans.EventHandler.class, java.lang.ProcessBuilder.class, java.lang.Void.class, void.class });\n```\nUsers of XStream 1.4.6 or below can register an own converter to prevent the unmarshalling of the currently know critical types of the Java runtime. It is in fact an updated version of the workaround for CVE-2013-7285:\n```Java\nxstream.registerConverter(new Converter() {\n  public boolean canConvert(Class type) {\n    return type != null && (type == java.beans.EventHandler.class || type == java.lang.ProcessBuilder.class || type == java.lang.Void.class || void.class || type.getName().equals(\"javax.imageio.ImageIO$ContainsFilter\") || Proxy.isProxy(type));\n  }\n\n  public Object unmarshal(HierarchicalStreamReader reader, UnmarshallingContext context) {\n    throw new ConversionException(\"Unsupported type due to security reasons.\");\n  }\n\n  public void marshal(Object source, HierarchicalStreamWriter writer, MarshallingContext context) {\n    throw new ConversionException(\"Unsupported type due to security reasons.\");\n  }\n}, XStream.PRIORITY_LOW);\n```\n\n### Credits\nChen L found and reported the issue to XStream and provided the required information to reproduce it.  He was supported by Zhihong Tian and Hui Lu, both from Guangzhou University.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2020-26217](https://x-stream.github.io/CVE-2020-26217.html).\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2020-11-16T20:07:59Z",
+      "updated" : "2026-07-08T05:59:56Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "1b5da103-9719-43c8-8d61-0b7ce9594058",
+      "id" : "GHSA-rgh3-987h-wpmw",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        200
+      ],
+      "description" : "Multiple XML external entity (XXE) vulnerabilities in the (1) Dom4JDriver, (2) DomDriver, (3) JDomDriver, (4) JDom2Driver, (5) SjsxpDriver, (6) StandardStaxDriver, and (7) WstxDriver drivers in XStream before 1.4.9 allow remote attackers to read arbitrary files via a crafted XML document.",
+      "published" : "2020-06-30T22:48:14Z",
+      "updated" : "2025-05-23T19:46:42Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "3933f5b7-6219-40dc-9018-c2695f523571",
+      "id" : "GHSA-rmr5-cpv2-vgjf",
+      "source" : {
+        "name" : "GITHUB",
+        "url" : "https://github.com/advisories"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "GITHUB",
+            "url" : "https://github.com/advisories"
+          },
+          "severity" : "high",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        400,
+        502
+      ],
+      "description" : "### Impact\nThe vulnerability may allow a remote attacker to allocate 100% CPU time on the target system depending on CPU type or parallel execution of such a payload resulting in a denial of service only by manipulating the processed input stream.\n\n### Patches\nXStream 1.4.19 monitors and accumulates the time it takes to add elements to collections and throws an exception if a set threshold is exceeded.\n\n### Workarounds\nThe attack uses the hash code implementation for collections and maps to force an exponential calculation time due to highly recursive structures with in the collection or map. Following types of the Java runtime are affected in Java versions available in December 2021:\n\n- java.util.HashMap\n- java.util.HashSet\n- java.util.Hashtable\n- java.util.LinkedHashMap\n- java.util.LinkedHashSet\n- java.util.Stack (older Java revisions only)\n- java.util.Vector (older Java revisions only)\n- Other third party collection implementations that use their element's hash code may also be affected\n\nIf your object graph does not use referenced elements at all, you may simply set the NO_REFERENCE mode:\n```Java\nXStream xstream = new XStream();\nxstream.setMode(XStream.NO_REFERENCES);\n```\n\nIf your object graph contains neither a Hashtable, HashMap nor a HashSet (or one of the linked variants of it) then you can use the security framework to deny the usage of these types:\n```Java\nXStream xstream = new XStream();\nxstream.denyTypes(new Class[]{\n java.util.HashMap.class, java.util.HashSet.class, java.util.Hashtable.class, java.util.LinkedHashMap.class, java.util.LinkedHashSet.class\n});\n```\n\nUnfortunately these types are very common. If you only use HashMap or HashSet and your XML refers these only as default map or set, you may additionally change the default implementation of java.util.Map and java.util.Set at unmarshalling time::\n```Java\nxstream.addDefaultImplementation(java.util.TreeMap.class, java.util.Map.class);\nxstream.addDefaultImplementation(java.util.TreeSet.class, java.util.Set.class);\n```\nHowever, this implies that your application does not care about the implementation of the map and all elements are comparable.\n\n### References\nSee full information about the nature of the vulnerability and the steps to reproduce it in XStream's documentation for [CVE-2021-43859](https://x-stream.github.io/CVE-2021-43859.html).\n\n### Credits\nThe vulnerability was discovered and reported by r00t4dm at Cloud-Penetrating Arrow Lab.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Open an issue in [XStream](https://github.com/x-stream/xstream/issues)\n* Contact us at [XStream Google Group](https://groups.google.com/group/xstream-user)",
+      "published" : "2022-02-01T00:48:15Z",
+      "updated" : "2026-07-08T06:29:15Z",
+      "affects" : [
+        {
+          "ref" : "90220a3d-325b-4666-b8f4-3218dd39d906"
+        }
+      ]
+    }
+  ]
+}

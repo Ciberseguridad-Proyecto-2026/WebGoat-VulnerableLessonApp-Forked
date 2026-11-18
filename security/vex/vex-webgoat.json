@@ -10,15 +10,22 @@
     {
       "vulnerability": {
         "name": "CVE-2025-48924",
-        "aliases": ["GHSA-j288-q9x7-2f5v"],
+        "aliases": [
+          "GHSA-j288-q9x7-2f5v"
+        ],
         "description": "Apache Commons Lang: uncontrolled recursion in ClassUtils.getClass(...) with very long inputs."
       },
       "products": [
         {
           "@id": "pkg:maven/org.owasp.webgoat/webgoat@2026.6-SNAPSHOT",
           "subcomponents": [
-            { "@id": "pkg:maven/org.apache.commons/commons-lang3@3.14.0" }
+            {
+              "@id": "pkg:maven/org.apache.commons/commons-lang3@3.14.0"
+            }
           ]
+        },
+        {
+          "@id": "pkg:maven/org.apache.commons/commons-lang3@3.14.0"
         }
       ],
       "status": "not_affected",
@@ -28,15 +35,22 @@
     {
       "vulnerability": {
         "name": "CVE-2024-47072",
-        "aliases": ["GHSA-hfq9-hggm-c56q"],
+        "aliases": [
+          "GHSA-hfq9-hggm-c56q"
+        ],
         "description": "XStream: denial of service (stack overflow) via a manipulated binary input stream processed by BinaryStreamDriver."
       },
       "products": [
         {
           "@id": "pkg:maven/org.owasp.webgoat/webgoat@2026.6-SNAPSHOT",
           "subcomponents": [
-            { "@id": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.5" }
+            {
+              "@id": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.5"
+            }
           ]
+        },
+        {
+          "@id": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.5"
         }
       ],
       "status": "not_affected",
@@ -46,15 +60,22 @@
     {
       "vulnerability": {
         "name": "CVE-2013-7285",
-        "aliases": ["GHSA-f554-x222-wgf7"],
+        "aliases": [
+          "GHSA-f554-x222-wgf7"
+        ],
         "description": "XStream: remote code execution through deserialization of dynamic proxies (java.beans.EventHandler)."
       },
       "products": [
         {
           "@id": "pkg:maven/org.owasp.webgoat/webgoat@2026.6-SNAPSHOT",
           "subcomponents": [
-            { "@id": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.5" }
+            {
+              "@id": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.5"
+            }
           ]
+        },
+        {
+          "@id": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.5"
         }
       ],
       "status": "affected",
@@ -63,15 +84,22 @@
     {
       "vulnerability": {
         "name": "CVE-2021-39144",
-        "aliases": ["GHSA-j9h8-phrw-h4fh"],
+        "aliases": [
+          "GHSA-j9h8-phrw-h4fh"
+        ],
         "description": "XStream: remote command execution by manipulating the processed input stream (listed in the CISA KEV catalog)."
       },
       "products": [
         {
           "@id": "pkg:maven/org.owasp.webgoat/webgoat@2026.6-SNAPSHOT",
           "subcomponents": [
-            { "@id": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.5" }
+            {
+              "@id": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.5"
+            }
           ]
+        },
+        {
+          "@id": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.5"
         }
       ],
       "status": "affected",

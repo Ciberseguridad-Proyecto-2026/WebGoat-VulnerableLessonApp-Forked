@@ -84,9 +84,21 @@ Archivo: [`vex/vex-webgoat.json`](vex/vex-webgoat.json) (formato **OpenVEX v0.2.
 | CVE-2013-7285 | `affected` | Vulnerabilidad intencional de la lección; mitigación por aislamiento |
 | CVE-2021-39144 | `affected` | Mismo punto de entrada; KEV; mitigación por aislamiento |
 
+Las mismas decisiones se registraron como análisis de auditoría en Dependency-Track y se exportaron como
+**CycloneDX VEX 1.5** en [`vex/vex-webgoat.cdx.json`](vex/vex-webgoat.cdx.json). Ese archivo cubre los 37 hallazgos:
+los 4 analizados llevan su estado y el resto queda sin análisis, pendiente de triage.
+
 Para comprobar que Grype respeta el VEX (los `not_affected` dejan de contarse):
 
 ```bash
 MSYS_NO_PATHCONV=1 docker run --rm -v "$PWD":/src -v grype-db:/.cache/grype anchore/grype:latest \
   sbom:/src/security/sbom/sbom-webgoat.cdx.json --vex /src/security/vex/vex-webgoat.json
 ```
+
+Resultado verificado el 17-nov-2026: **37 → 35 hallazgos**. Grype mueve `GHSA-j288-q9x7-2f5v` (CVE-2025-48924) y
+`GHSA-hfq9-hggm-c56q` (CVE-2024-47072) a `ignoredMatches` con regla `vex-status: not_affected`. Las declaraciones
+`affected` no se filtran, así que el gate **sigue fallando** por CVE-2013-7285, que es lo correcto.
+
+> **Nota técnica.** Cuando la entrada es un SBOM, Grype solo empareja declaraciones OpenVEX cuyo producto sea el `purl`
+> del paquete. Por eso cada declaración lista dos productos: la aplicación (`pkg:maven/org.owasp.webgoat/webgoat@…`, con
+> el paquete como *subcomponent*) y el propio `purl` del paquete.
