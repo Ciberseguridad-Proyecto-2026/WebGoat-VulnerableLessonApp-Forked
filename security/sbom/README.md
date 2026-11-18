@@ -39,7 +39,7 @@ MSYS_NO_PATHCONV=1 docker run --rm -v "$PWD":/src anchore/syft:latest \
 MSYS_NO_PATHCONV=1 docker run --rm -v "$PWD":/src -v grype-db:/.cache/grype anchore/grype:latest \
   sbom:/src/security/sbom/sbom-webgoat.cdx.json -o table > security/sbom/grype-report.txt
 
-# 4. Mismo umbral que el gate de CI: código de salida 1 si hay algún hallazgo Critical
+# 4. Mismo umbral que el gate de CI: código de salida distinto de 0 si hay algún hallazgo Critical
 MSYS_NO_PATHCONV=1 docker run --rm -v "$PWD":/src -v grype-db:/.cache/grype anchore/grype:latest \
   sbom:/src/security/sbom/sbom-webgoat.cdx.json --fail-on critical
 ```
@@ -55,7 +55,7 @@ MSYS_NO_PATHCONV=1 docker run --rm -v "$PWD":/src -v grype-db:/.cache/grype anch
 | Medium | 14 | `xstream 1.4.5` (13), `commons-lang3 3.14.0` (1, CVE-2025-48924) |
 | **Total** | **37** | 2 componentes vulnerables de 239 |
 
-- **El gate falla, como se esperaba.** `--fail-on critical` devuelve código 1 por CVE-2013-7285 (XStream). Esa es
+- **El gate falla, como se esperaba.** `--fail-on critical` termina con código de salida 2 (`discovered vulnerabilities at or above the severity threshold`) por CVE-2013-7285 (XStream). Esa es
   justamente la vulnerabilidad que enseña la lección *Vulnerable Components*.
 - **XStream 1.4.5 es intencional.** `pom.xml` lo marca como `do not update necessary for lesson`. No se corrige en
   esta fase (ver la nota del plan: la corrección pertenece a la Fase 7). Dependabot está configurado para ignorarlo.
