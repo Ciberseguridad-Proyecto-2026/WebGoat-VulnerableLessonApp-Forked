@@ -1,0 +1,81 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://github.com/Pablokill2004/WebGoat-VulnerableLessonApp-Forked/blob/main/security/vex/vex-webgoat.json",
+  "author": "Equipo SSDLC OWASP WebGoat - Estudiante C (Fase 4)",
+  "role": "Document Creator",
+  "timestamp": "2026-11-17T23:30:00Z",
+  "version": 1,
+  "tooling": "Manual analysis on Syft 1.57.2 SBOM + Grype 0.122.0 + Dependency-Track 4.14.6",
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "CVE-2025-48924",
+        "aliases": ["GHSA-j288-q9x7-2f5v"],
+        "description": "Apache Commons Lang: uncontrolled recursion in ClassUtils.getClass(...) with very long inputs."
+      },
+      "products": [
+        {
+          "@id": "pkg:maven/org.owasp.webgoat/webgoat@2026.6-SNAPSHOT",
+          "subcomponents": [
+            { "@id": "pkg:maven/org.apache.commons/commons-lang3@3.14.0" }
+          ]
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "WebGoat never calls ClassUtils.getClass(...). Its own code only uses StringUtils, RandomStringUtils, RandomUtils, ArrayUtils and ExceptionUtils from commons-lang3. The only other caller inside the executable JAR is commons-text ConstantStringLookup (the ${const:...} lookup of StringSubstitutor), and WebGoat never uses StringSubstitutor or StringLookupFactory. From commons-text it only uses StringEscapeUtils.escapeHtml4 and escapeJson. Verified by scanning every class in BOOT-INF/classes and BOOT-INF/lib for references to org/apache/commons/lang3/ClassUtils. Remediation (Fase 7): raise commons-lang3.version in pom.xml to 3.18.0 or later."
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2024-47072",
+        "aliases": ["GHSA-hfq9-hggm-c56q"],
+        "description": "XStream: denial of service (stack overflow) via a manipulated binary input stream processed by BinaryStreamDriver."
+      },
+      "products": [
+        {
+          "@id": "pkg:maven/org.owasp.webgoat/webgoat@2026.6-SNAPSHOT",
+          "subcomponents": [
+            { "@id": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.5" }
+          ]
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "The flaw only affects XStream configured with BinaryStreamDriver. The only XStream instance in WebGoat (VulnerableComponentsLesson, POST /WebGoat/VulnerableComponents/attack1) is created with new XStream(), which uses the default text XML driver (XppDriver). No class in the JAR outside the xstream library itself references BinaryStreamDriver."
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2013-7285",
+        "aliases": ["GHSA-f554-x222-wgf7"],
+        "description": "XStream: remote code execution through deserialization of dynamic proxies (java.beans.EventHandler)."
+      },
+      "products": [
+        {
+          "@id": "pkg:maven/org.owasp.webgoat/webgoat@2026.6-SNAPSHOT",
+          "subcomponents": [
+            { "@id": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.5" }
+          ]
+        }
+      ],
+      "status": "affected",
+      "action_statement": "Intentional vulnerability: it is the learning objective of the 'Vulnerable Components' lesson (VulnerableComponentsLesson.fromXML on user input). pom.xml marks xstream as 'do not update necessary for lesson', and the project rules forbid fixing lesson vulnerabilities by default. Compensating controls: run WebGoat only on loopback or an isolated Docker network (127.0.0.1:8080/9090), never on a reachable network or with real data. Dependabot ignores com.thoughtworks.xstream:xstream. Upgrading to 1.4.20 or later with an allow-list of types is deferred to Fase 7, if the team decides to remove the lesson."
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2021-39144",
+        "aliases": ["GHSA-j9h8-phrw-h4fh"],
+        "description": "XStream: remote command execution by manipulating the processed input stream (listed in the CISA KEV catalog)."
+      },
+      "products": [
+        {
+          "@id": "pkg:maven/org.owasp.webgoat/webgoat@2026.6-SNAPSHOT",
+          "subcomponents": [
+            { "@id": "pkg:maven/com.thoughtworks.xstream/xstream@1.4.5" }
+          ]
+        }
+      ],
+      "status": "affected",
+      "action_statement": "Same entry point as CVE-2013-7285: XStream.fromXML(payload) on user input, with no security framework and no allow-list. Treated as affected even though the specific gadget chain depends on JDK internal classes and was not reproduced on JDK 25. Priority P1 because it is in CISA KEV (added 2023-03-10) with EPSS 0.98. Same compensating controls as CVE-2013-7285 (isolated, localhost-only deployment) until the lesson's fate is decided in Fase 7."
+    }
+  ]
+}
