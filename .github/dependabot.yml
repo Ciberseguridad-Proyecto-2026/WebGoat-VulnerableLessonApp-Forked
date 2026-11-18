@@ -1,0 +1,50 @@
+# Dependabot - Fase 4 SSDLC (Estudiante C)
+# Weekly version updates for Maven dependencies and GitHub Actions.
+# Security updates (Dependabot alerts) are enabled separately in
+# Settings -> Code security -> Dependabot alerts / security updates.
+version: 2
+updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    target-branch: "main"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "deps(maven)"
+    groups:
+      spring-boot:
+        patterns:
+          - "org.springframework.boot:*"
+          - "org.springframework:*"
+          - "org.springframework.security:*"
+      maven-plugins:
+        patterns:
+          - "org.apache.maven.plugins:*"
+          - "*-maven-plugin"
+    ignore:
+      # Intentionally vulnerable versions required by WebGoat lessons
+      # ("do not update necessary for lesson" in pom.xml). Updating them would
+      # break the Vulnerable Components / Insecure Deserialization exercises.
+      - dependency-name: "com.thoughtworks.xstream:xstream"
+      - dependency-name: "commons-collections:commons-collections"
+      # Old JJWT API is used on purpose by the JWT lessons.
+      - dependency-name: "io.jsonwebtoken:jjwt"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "deps(actions)"
