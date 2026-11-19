@@ -1,9 +1,15 @@
 # DevSecOps pipeline - OWASP WebGoat fork (SSDLC)
 #
 # Jobs:
+
+#   secretos -> [Estudiante B] Gitleaks sobre los commits del PR (falla si hay secretos)
+#   sast     -> [Estudiante B] Semgrep + reglas propias, SARIF artifact (falla con ERROR)
+#   sca      -> [Estudiante C] Syft SBOM (CycloneDX) + Grype gate (fail on Critical)
+
 #   secretos -> [Ana lopez] secret detection (gitleaks / Semgrep secrets)
 #   sast     -> [Ana lopez] Semgrep / CodeQL, SARIF artifact
 #   sca      -> [Christian Sosa] Syft SBOM (CycloneDX) + Grype gate (fail on Critical)
+main
 #
 # Every third-party action is pinned to a full commit SHA (tag in the trailing comment)
 # so Dependabot (github-actions ecosystem) can propose reviewed upgrades.
@@ -24,6 +30,132 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # ---------------------------------------------------------------------------
+  # secretos - Gitleaks
+  # Gate: falla si los commits NUEVOS del pull request (base..head) introducen
+  # un secreto (token, llave, contrasena). No se escanea todo el historial porque
+  # WebGoat trae secretos de ejemplo a proposito en sus lecciones.
+  # ---------------------------------------------------------------------------
+  secretos:
+    name: secretos
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    env:
+      GITLEAKS_VERSION: "8.30.1"
+      # SHA-256 oficial de gitleaks_8.30.1_linux_x64.tar.gz (checksums.txt del release)
+      GITLEAKS_SHA256: "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
+    steps:
+      - name: Checkout (historial completo para comparar commits)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Instalar gitleaks (version fija + verificacion de checksum)
+        run: |
+          curl -sSfL -o gitleaks.tar.gz \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          echo "${GITLEAKS_SHA256}  gitleaks.tar.gz" | sha256sum -c -
+          tar -xzf gitleaks.tar.gz gitleaks
+          ./gitleaks version
+
+      # Gate real: gitleaks termina con codigo 1 si encuentra un secreto.
+      - name: Escanear commits del PR (gitleaks gate)
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          if [ -n "${BASE_SHA}" ]; then
+            RANGE="${BASE_SHA}..${HEAD_SHA}"
+          else
+            RANGE="HEAD~1..HEAD"   # ejecucion manual (workflow_dispatch)
+          fi
+          echo "Rango escaneado: ${RANGE}"
+          ./gitleaks git . \
+            --log-opts="${RANGE}" \
+            --redact \
+            --verbose \
+            --exit-code 1 \
+            --report-format sarif \
+            --report-path gitleaks.sarif
+
+      - name: Subir reporte gitleaks (SARIF)
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: gitleaks.sarif
+          path: gitleaks.sarif
+          if-no-files-found: warn
+          retention-days: 14
+
+  # ---------------------------------------------------------------------------
+  # sast - Semgrep (p/java + p/owasp-top-ten + reglas propias)
+  # Gate: falla si hay al menos 1 hallazgo de severidad ERROR (SARIF level
+  # "error"). Los hallazgos WARNING/INFO solo se reportan (no bloquean).
+  # ---------------------------------------------------------------------------
+  sast:
+    name: sast
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      SEMGREP_VERSION: "1.185.0"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Instalar Semgrep (version fija)
+        run: |
+          pipx install "semgrep==${SEMGREP_VERSION}"
+          semgrep --version
+
+      - name: Semgrep scan (exporta semgrep.sarif)
+        run: |
+          semgrep scan \
+            --config p/java \
+            --config p/owasp-top-ten \
+            --config .semgrep/reglas-sast.yml \
+            --metrics=off \
+            --sarif-output=semgrep.sarif
+
+      - name: Subir reporte Semgrep (SARIF)
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: semgrep.sarif
+          path: semgrep.sarif
+          if-no-files-found: error
+          retention-days: 14
+
+      # Gate real: sin "|| true" ni continue-on-error.
+      - name: Gate SAST (falla con hallazgos ERROR)
+        run: |
+          COUNTS=$(jq -r '.runs[0] as $r
+            | ($r.tool.driver.rules | map({(.id): .defaultConfiguration.level}) | add) as $lv
+            | [$r.results[] | $lv[.ruleId]]
+            | {error: map(select(. == "error")) | length,
+               warning: map(select(. == "warning")) | length,
+               note: map(select(. == "note")) | length}' semgrep.sarif)
+          ERRORS=$(echo "$COUNTS" | jq .error)
+          {
+            echo "## Semgrep (SAST) - gate: falla si hay hallazgos ERROR"
+            echo ""
+            echo "| Severidad | Cantidad | Accion |"
+            echo "|---|---|---|"
+            echo "| ERROR | ${ERRORS} | Bloquea |"
+            echo "| WARNING | $(echo "$COUNTS" | jq .warning) | Solo avisa |"
+            echo "| INFO | $(echo "$COUNTS" | jq .note) | Solo avisa |"
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "${ERRORS}" -gt 0 ]; then
+            echo "::error::Semgrep encontro ${ERRORS} hallazgo(s) de severidad ERROR. Revise semgrep.sarif."
+            exit 1
+          fi
+
   sca:
     name: sca
     runs-on: ubuntu-latest
