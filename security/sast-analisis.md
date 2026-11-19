@@ -54,6 +54,29 @@ jobs `secretos` y `sast` en el pipeline, criterio de bloqueo y análisis de los 
 El reporte `semgrep.sarif` se sube como artefacto **antes** de evaluar el gate (`if: always()`), así queda disponible
 aunque el job falle. El gate escribe un resumen por severidad en la página del run (`$GITHUB_STEP_SUMMARY`).
 
+### 2.1 Protección de la rama `main`
+
+Regla de protección clásica aplicada a `main`:
+
+| Configuración | Valor | Propósito |
+|---|---|---|
+| Require a pull request before merging | Activo, 2 aprobaciones requeridas | Nadie sube cambios directo a `main`; revisión por pares obligatoria. |
+| Require status checks to pass before merging | `secretos`, `sast`, `sca` | Los gates de seguridad son obligatorios para hacer merge. |
+| Do not allow bypassing the above settings | Desactivado | Excepción documentada. |
+
+**Excepción documentada:** WebGoat es intencionalmente vulnerable, por lo que `sast` (22 hallazgos ERROR) y `sca`
+(vulnerabilidades críticas) fallan siempre en esta etapa; esto demuestra que los gates son reales. Para poder
+integrar los entregables del avance en `main`, solo el administrador del repositorio puede hacer merge omitiendo
+los checks fallidos, de forma consciente y revisada. Esta excepción se revisará en la Fase 7, cuando se
+corrijan hallazgos y se evalúe el escaneo diferencial (bloquear solo hallazgos nuevos).
+
+![Regla de protección creada para main](branch-protection-main-1.jpeg)
+
+![Checks de seguridad requeridos](branch-protection-main-2.jpeg)
+
+![Pull request y aprobaciones obligatorias](branch-protection-main-3.jpeg)
+
+![Bypass permitido solo para administradores](branch-protection-main-4.jpeg)
 ---
 
 ## 3. Evidencia de ejecución (PR #11)
