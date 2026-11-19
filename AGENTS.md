@@ -58,6 +58,15 @@
 - `Dockerfile_desktop` - Browser-accessible training desktop image.
 - `docs/` - Supplemental project documentation and images.
 
+## Project contributor mapping and documentation
+
+- In project deliverables, assign responsibilities using the contributor's real name, not only a role label such as "Estudiante A", "Estudiante B", or "Estudiante C".
+- Use this mapping whenever a course role needs to be referenced:
+  - Estudiante A: Pablo Siquinajay.
+  - Estudiante B: Ana Lopez.
+  - Estudiante C: Christian Sosa.
+- For new responsibility fields, write the mapped name (for example, `Responsable: Pablo Siquinajay`). Do not introduce role-only responsibility labels in new or revised project documentation.
+
 ## Lesson conventions
 
 - Put Java in `lessons/<lessonname>` and resources in matching directories.
@@ -129,4 +138,3 @@
 # Remove stale WebGoat runtime/test data when required
 ./mvnw clean -Pcleanall
 ```
-

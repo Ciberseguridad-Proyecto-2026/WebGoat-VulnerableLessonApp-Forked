@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 645.559 613.45" width="645.559" height="613.45" style="--bg:#ffffff;--fg:#1f2328;--line:#d1d9e0;--accent:#0969da;--muted:#59636e;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-23687B8C" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="#687B8C" stroke="#687B8C" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start-23687B8C" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="#687B8C" stroke="#687B8C" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="TB4" data-label="TB4 · Contenedor Docker · publicación limitada a 127.0.0.1">
+  <rect x="40" y="40" width="565.559" height="533.45" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="40" y="40" width="565.559" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="52" y="54" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">TB4 · Contenedor Docker · publicación limitada a 127.0.0.1</text>
+</g>
+<polyline class="edge" data-from="P1" data-to="S1" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="F8" points="257.265,212.35000000000005 338.06399999999996,212.35000000000002 338.06399999999996,278.85 366.06399999999996,278.85" fill="none" stroke="#687B8C" stroke-width="1.5px" marker-end="url(#arrowhead-23687B8C)" />
+<polyline class="edge" data-from="P2" data-to="S1" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="F9" points="293.57399999999996,290.15000000000003 366.06399999999996,290.15000000000003" fill="none" stroke="#687B8C" stroke-width="1.5px" marker-end="url(#arrowhead-23687B8C)" />
+<polyline class="edge" data-from="P3" data-to="S1" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="F10" points="248.373,143.51666666666668 272.96999999999997,143.51666666666668 272.96999999999997,151.20000000000002 350.06399999999996,151.20000000000002 350.06399999999996,267.55000000000007 366.06399999999996,267.55000000000007" fill="none" stroke="#687B8C" stroke-width="1.5px" marker-end="url(#arrowhead-23687B8C)" />
+<polyline class="edge" data-from="P4" data-to="S1" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="F11" points="228.36599999999999,445.75000000000006 350.06399999999996,445.75000000000006 350.06399999999996,312.75000000000006 366.06399999999996,312.75000000000006" fill="none" stroke="#687B8C" stroke-width="1.5px" marker-end="url(#arrowhead-23687B8C)" />
+<polyline class="edge" data-from="P6" data-to="S2" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="F12" points="253.56,523.55 366.06399999999996,523.55" fill="none" stroke="#687B8C" stroke-width="1.5px" marker-end="url(#arrowhead-23687B8C)" />
+<polyline class="edge" data-from="P7" data-to="S1" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="F13" points="269.121,367.95000000000005 338.06399999999996,367.95000000000005 338.06399999999996,301.45000000000005 366.06399999999996,301.45000000000005" fill="none" stroke="#687B8C" stroke-width="1.5px" marker-end="url(#arrowhead-23687B8C)" />
+<polyline class="edge" data-from="P3" data-to="S3" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="F14" points="248.373,125.58333333333336 272.96999999999997,125.58333333333336 272.96999999999997,117.89999999999999 366.06399999999996,117.9" fill="none" stroke="#687B8C" stroke-width="1.5px" marker-end="url(#arrowhead-23687B8C)" />
+<g class="edge-label" data-from="P1" data-to="S1" data-label="F8">
+  <rect x="298.15799999999996" y="196.35000000000002" width="30.718000000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="313.51699999999994" y="211.50000000000003" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">F8</text>
+</g>
+<g class="edge-label" data-from="P2" data-to="S1" data-label="F9">
+  <rect x="298.15799999999996" y="274.1500000000001" width="30.718000000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="313.51699999999994" y="289.30000000000007" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">F9</text>
+</g>
+<g class="edge-label" data-from="P3" data-to="S1" data-label="F10">
+  <rect x="296.96999999999997" y="135.20000000000002" width="33.094" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="313.517" y="150.35000000000002" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">F10</text>
+</g>
+<g class="edge-label" data-from="P4" data-to="S1" data-label="F11">
+  <rect x="298.75199999999995" y="429.75000000000006" width="29.53" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="313.51699999999994" y="444.90000000000003" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">F11</text>
+</g>
+<g class="edge-label" data-from="P6" data-to="S2" data-label="F12">
+  <rect x="296.96999999999997" y="507.55000000000007" width="33.094" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="313.517" y="522.7" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">F12</text>
+</g>
+<g class="edge-label" data-from="P7" data-to="S1" data-label="F13">
+  <rect x="296.96999999999997" y="351.95000000000005" width="33.094" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="313.517" y="367.1" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">F13</text>
+</g>
+<g class="edge-label" data-from="P3" data-to="S3" data-label="F14">
+  <rect x="296.96999999999997" y="101.89999999999999" width="33.094" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="313.517" y="117.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">F14</text>
+</g>
+<g class="node" data-id="P1" data-label="TB1 · P1 Autenticación
+usuario y rol" data-shape="stadium">
+  <rect x="88.60399999999998" y="185.45000000000005" width="168.661" height="53.800000000000004" rx="26.900000000000002" ry="26.900000000000002" fill="#EAF3ED" stroke="#557A61" stroke-width="2px" />
+  <text x="172.93449999999999" y="212.35000000000005" text-anchor="middle" font-size="13" font-weight="500" fill="#23372A"><tspan x="172.93449999999999" dy="-3.9000000000000012">TB1 · P1 Autenticación</tspan><tspan x="172.93449999999999" dy="16.900000000000002">usuario y rol</tspan></text>
+</g>
+<g class="node" data-id="P2" data-label="TB1 · P2 Motor de lecciones
+catálogo y datos" data-shape="stadium">
+  <rect x="88.60399999999998" y="263.25" width="204.96999999999997" height="53.800000000000004" rx="26.900000000000002" ry="26.900000000000002" fill="#EAF3ED" stroke="#557A61" stroke-width="2px" />
+  <text x="191.08899999999997" y="290.15" text-anchor="middle" font-size="13" font-weight="500" fill="#23372A"><tspan x="191.08899999999997" dy="-3.9000000000000012">TB1 · P2 Motor de lecciones</tspan><tspan x="191.08899999999997" dy="16.900000000000002">catálogo y datos</tspan></text>
+</g>
+<g class="node" data-id="P3" data-label="TB1 · P3 Evaluación
+progreso e intentos" data-shape="stadium">
+  <rect x="88.60399999999998" y="107.65000000000002" width="159.769" height="53.800000000000004" rx="26.900000000000002" ry="26.900000000000002" fill="#EAF3ED" stroke="#557A61" stroke-width="2px" />
+  <text x="168.4885" y="134.55" text-anchor="middle" font-size="13" font-weight="500" fill="#23372A"><tspan x="168.4885" dy="-3.9000000000000012">TB1 · P3 Evaluación</tspan><tspan x="168.4885" dy="16.900000000000002">progreso e intentos</tspan></text>
+</g>
+<g class="node" data-id="P4" data-label="TB1 · P4 Mailbox
+correo interno" data-shape="stadium">
+  <rect x="88.60399999999998" y="418.8500000000001" width="139.762" height="53.800000000000004" rx="26.900000000000002" ry="26.900000000000002" fill="#EAF3ED" stroke="#557A61" stroke-width="2px" />
+  <text x="158.48499999999999" y="445.75000000000006" text-anchor="middle" font-size="13" font-weight="500" fill="#23372A"><tspan x="158.48499999999999" dy="-3.9000000000000012">TB1 · P4 Mailbox</tspan><tspan x="158.48499999999999" dy="16.900000000000002">correo interno</tspan></text>
+</g>
+<g class="node" data-id="P7" data-label="TB1 · P7 Administración
+usuarios" data-shape="stadium">
+  <rect x="88.60399999999998" y="341.05000000000007" width="180.51699999999997" height="53.800000000000004" rx="26.900000000000002" ry="26.900000000000002" fill="#EAF3ED" stroke="#557A61" stroke-width="2px" />
+  <text x="178.86249999999995" y="367.95000000000005" text-anchor="middle" font-size="13" font-weight="500" fill="#23372A"><tspan x="178.86249999999995" dy="-3.9000000000000012">TB1 · P7 Administración</tspan><tspan x="178.86249999999995" dy="16.900000000000002">usuarios</tspan></text>
+</g>
+<g class="node" data-id="P6" data-label="TB2 · P6 File Server
+archivos subidos" data-shape="stadium">
+  <rect x="88.60399999999998" y="496.65000000000003" width="164.95600000000002" height="53.800000000000004" rx="26.900000000000002" ry="26.900000000000002" fill="#EAF3ED" stroke="#557A61" stroke-width="2px" />
+  <text x="171.082" y="523.5500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="#23372A"><tspan x="171.082" dy="-3.9000000000000012">TB2 · P6 File Server</tspan><tspan x="171.082" dy="16.900000000000002">archivos subidos</tspan></text>
+</g>
+<g class="node" data-id="S1" data-label="TB3 · S1 HSQLDB
+usuarios · progreso · correo" data-shape="cylinder">
+  <rect x="366.06399999999996" y="263.25" width="216.82600000000002" height="53.80000000000001" fill="#FFF3D9" stroke="none" />
+  <line x1="366.06399999999996" y1="263.25" x2="366.06399999999996" y2="317.05" stroke="#9B783B" stroke-width="2px" />
+  <line x1="582.89" y1="263.25" x2="582.89" y2="317.05" stroke="#9B783B" stroke-width="2px" />
+  <ellipse cx="474.477" cy="317.05" rx="108.41300000000001" ry="7" fill="#FFF3D9" stroke="#9B783B" stroke-width="2px" />
+  <ellipse cx="474.477" cy="263.25" rx="108.41300000000001" ry="7" fill="#FFF3D9" stroke="#9B783B" stroke-width="2px" />
+  <text x="474.477" y="290.15" text-anchor="middle" font-size="13" font-weight="500" fill="#3B321F"><tspan x="474.477" dy="-3.9000000000000012">TB3 · S1 HSQLDB</tspan><tspan x="474.477" dy="16.900000000000002">usuarios · progreso · correo</tspan></text>
+</g>
+<g class="node" data-id="S2" data-label="TB3 · S2 Filesystem
+uploads y archivos de datos" data-shape="cylinder">
+  <rect x="366.06399999999996" y="496.65000000000003" width="206.45199999999994" height="53.80000000000001" fill="#FFF3D9" stroke="none" />
+  <line x1="366.06399999999996" y1="496.65000000000003" x2="366.06399999999996" y2="550.45" stroke="#9B783B" stroke-width="2px" />
+  <line x1="572.5159999999998" y1="496.65000000000003" x2="572.5159999999998" y2="550.45" stroke="#9B783B" stroke-width="2px" />
+  <ellipse cx="469.28999999999996" cy="550.45" rx="103.22599999999997" ry="7" fill="#FFF3D9" stroke="#9B783B" stroke-width="2px" />
+  <ellipse cx="469.28999999999996" cy="496.65000000000003" rx="103.22599999999997" ry="7" fill="#FFF3D9" stroke="#9B783B" stroke-width="2px" />
+  <text x="469.28999999999996" y="523.5500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="#3B321F"><tspan x="469.28999999999996" dy="-3.9000000000000012">TB3 · S2 Filesystem</tspan><tspan x="469.28999999999996" dy="16.900000000000002">uploads y archivos de datos</tspan></text>
+</g>
+<g class="node" data-id="S3" data-label="TB3 · S3 Logs
+salida estándar del contenedor" data-shape="cylinder">
+  <rect x="366.06399999999996" y="91" width="223.495" height="53.80000000000001" fill="#FFF3D9" stroke="none" />
+  <line x1="366.06399999999996" y1="91" x2="366.06399999999996" y2="144.8" stroke="#9B783B" stroke-width="2px" />
+  <line x1="589.559" y1="91" x2="589.559" y2="144.8" stroke="#9B783B" stroke-width="2px" />
+  <ellipse cx="477.81149999999997" cy="144.8" rx="111.7475" ry="7" fill="#FFF3D9" stroke="#9B783B" stroke-width="2px" />
+  <ellipse cx="477.81149999999997" cy="91" rx="111.7475" ry="7" fill="#FFF3D9" stroke="#9B783B" stroke-width="2px" />
+  <text x="477.81149999999997" y="117.9" text-anchor="middle" font-size="13" font-weight="500" fill="#3B321F"><tspan x="477.81149999999997" dy="-3.9000000000000012">TB3 · S3 Logs</tspan><tspan x="477.81149999999997" dy="16.900000000000002">salida estándar del contenedor</tspan></text>
+</g>
+</svg>

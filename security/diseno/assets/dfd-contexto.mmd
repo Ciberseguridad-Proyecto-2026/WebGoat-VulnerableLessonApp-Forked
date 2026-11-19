@@ -1,0 +1,19 @@
+flowchart LR
+  EST["Estudiante / Atacante"]
+  ADM["Administrador de la plataforma"]
+
+  subgraph SYS["Sistema WebGoat + WebWolf · Docker"]
+    P0(["Plataforma de formación<br/>WebGoat :8080 · WebWolf :9090"])
+  end
+
+  EST -->|"credenciales, payloads, archivos"| P0
+  P0 -->|"lecciones, feedback, correo interno"| EST
+  ADM -->|"despliegue y configuración"| P0
+  P0 -->|"logs y métricas (actuator)"| ADM
+
+  classDef actor fill:#EEF2F7,stroke:#596F85,stroke-width:2px,color:#203040
+  classDef process fill:#EAF3ED,stroke:#557A61,stroke-width:2px,color:#23372A
+  class EST,ADM actor
+  class P0 process
+  style SYS fill:#F7FAFC,stroke:#71869A,stroke-width:2px,stroke-dasharray:6 4,color:#263746
+  linkStyle default stroke:#687B8C,stroke-width:1.5px

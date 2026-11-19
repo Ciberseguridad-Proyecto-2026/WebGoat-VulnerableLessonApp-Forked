@@ -1,0 +1,29 @@
+flowchart LR
+  subgraph DOCKER["Contenedor Docker webgoat/webgoat — una sola JVM (publicado solo en 127.0.0.1)"]
+    subgraph WG["WebGoat · :8080 · /WebGoat"]
+      MVC["Controladores MVC y REST<br/>LessonController · Welcome · AdminController"]
+      THY["Vistas Thymeleaf<br/>Bootstrap 5 · jQuery 4"]
+      ENG["Motor de lecciones<br/>CourseConfiguration · Course · Lesson"]
+      ASG["Evaluación de respuestas<br/>AssignmentEndpoint → AttackResult"]
+      USR["Usuarios y progreso<br/>UserService · LessonTrackerInterceptor"]
+      MBX["Mailbox<br/>MailboxController"]
+    end
+    subgraph WW["WebWolf · :9090 · /WebWolf"]
+      FS["FileServer<br/>subida y descarga de archivos"]
+      REQ["Request Catcher<br/>/requests · WebWolfTraceRepository"]
+      JWT["Utilidades JWT<br/>JWTController · JWTToken"]
+    end
+    subgraph DATA["Capa de datos"]
+      DB[("HSQLDB embebida<br/>CONTAINER + esquema por usuario")]
+      DISK["Filesystem<br/>~/.webgoat-version · /tmp/webwolf-fileserver"]
+    end
+  end
+
+  MVC --> THY
+  MVC --> ENG
+  ENG --> ASG
+  ASG --> USR
+  USR --> DB
+  MBX --> DB
+  ENG --> DB
+  FS --> DISK
