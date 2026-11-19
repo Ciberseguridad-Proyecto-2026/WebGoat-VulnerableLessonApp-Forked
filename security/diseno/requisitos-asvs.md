@@ -4,7 +4,7 @@
 |---|---|
 | Proyecto | Desarrollo Seguro de una Aplicación (SSDLC) — OWASP WebGoat |
 | Versión analizada | Fork `2026.6-SNAPSHOT` |
-| Responsable | Estudiante A — Fase 1 (diseño) |
+| Responsable | Pablo Siquinajay — Fase 1 (diseño) |
 | Fecha | 18 de noviembre de 2026 |
 | Estándar | [OWASP ASVS 4.0.3](https://github.com/OWASP/ASVS/tree/v4.0.3), niveles 1 y 2 |
 | Base | [`arquitectura.md`](arquitectura.md) · [`dfd.md`](dfd.md) · [`clasificacion-datos.md`](clasificacion-datos.md) |
@@ -47,7 +47,7 @@ Se seleccionaron **24 requisitos ASVS 4.0.3** (19 de nivel 1 y 5 de nivel 2) apl
 | **V7.2.1** | L2 | Registrar todas las decisiones de autenticación con metadatos útiles. | No existe log de auditoría dedicado; solo logging de framework | Revisión + DAST | **No cumple** |
 | **V7.4.1** | L1 | Mensaje genérico ante errores inesperados o sensibles. | `application-webgoat.properties` (`include-stacktrace=always`), `application-webwolf.properties` | Revisión de configuración + DAST | **No cumple** |
 | **V8.3.1** | L1 | Datos sensibles en cuerpo/cabeceras, nunca en la cadena de consulta. | Login por POST; enlaces de reset con token en URL (`lessons/passwordreset/resetlink/`) | Revisión + DAST | **Parcial** |
-| **V10.1.1** | L2 | Usar una herramienta de análisis de código que detecte código potencialmente malicioso. | CI: Semgrep/CodeQL en `.github/workflows/devsecops.yml` | Pipeline (job `sast`) | **En progreso** (job pendiente, Estudiante B) |
+| **V10.1.1** | L2 | Usar una herramienta de análisis de código que detecte código potencialmente malicioso. | CI: Semgrep/CodeQL en `.github/workflows/devsecops.yml` | Pipeline (job `sast`) | **En progreso** (job pendiente, Ana Lopez) |
 | **V14.2.1** | L1 | Mantener componentes actualizados con verificación de dependencias en el build. | `.github/workflows/devsecops.yml` (Syft + Grype), `.github/dependabot.yml` | Pipeline (job `sca`) | **Parcial** (gate `sca` mergeado; Dependabot con PR pendientes) |
 | **V14.5.1** | L1 | Aceptar solo métodos HTTP usados por la aplicación y alertar de los inválidos. | Mapeos MVC de lecciones; actuator expuesto | DAST + revisión | **Parcial** |
 

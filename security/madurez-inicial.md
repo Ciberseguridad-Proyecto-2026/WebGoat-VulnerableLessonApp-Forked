@@ -4,7 +4,7 @@
 |---|---|
 | Proyecto | Desarrollo Seguro de una Aplicación (SSDLC) — OWASP WebGoat |
 | Aplicación auditada | Fork de OWASP WebGoat `2026.6-SNAPSHOT` (Java 25 / Spring Boot 4.1.2) |
-| Responsable | Estudiante A — Fases 0 y 1 |
+| Responsable | Pablo Siquinajay — Fases 0 y 1 |
 | Fecha de evaluación | 18 de noviembre de 2026 |
 | Nivel objetivo | 2 de diciembre de 2026 (entrega final) |
 | Marco de referencia | [OWASP SAMM v2.0](https://owaspsamm.org/) |
@@ -37,7 +37,7 @@ La evaluación sigue el modelo **OWASP SAMM v2.0**: 5 funciones de negocio, 3 pr
 ## 2. Evaluación de las 15 prácticas SAMM
 
 | Función | Práctica (SAMM) | Nivel actual | Justificación / evidencia | Nivel objetivo (2-dic) |
-|---|---|---|:---:|
+|---|---|:---:|---|:---:|
 | **Gobernanza** | Estrategia y métricas (SM) | **0** | No existen objetivos de seguridad ni métricas definidas en el repositorio. El README describe cómo ejecutar la app, no una estrategia de seguridad. | **1** |
 | **Gobernanza** | Política y cumplimiento (PC) | **1** | El `pom.xml` declara licencia GPL-2.0 y organización OWASP, pero no hay política de seguridad, proceso de revisión legal ni mapeo normativo. | **2** |
 | **Gobernanza** | Educación y guía (EG) | **0** | No hay guía de codificación segura para colaboradores; las lecciones son material didáctico, no formación interna del equipo. | **1** |
@@ -77,7 +77,7 @@ Estos aportes **no forman parte de la línea base**; se registran para que la co
 | `.github/dependabot.yml` (Maven y GitHub Actions) | SB, ST | Automatiza la actualización de dependencias y acciones. |
 | `security/sbom/sbom-webgoat.cdx.json` (CycloneDX) | SB | Inventario de componentes generado y versionado. |
 | `security/dtrack/`, `security/sca-priorizacion.md`, `security/vex/` | ST, DM | Publicación en Dependency-Track, priorización CVSS/EPSS/KEV y declaración VEX. |
-| Jobs `secretos` y `sast` (Semgrep + SARIF) | ST | **Pendientes de merge** al cierre de esta evaluación (responsabilidad del Estudiante B). |
+| Jobs `secretos` y `sast` (Semgrep + SARIF) | ST | **Pendientes de merge** al cierre de esta evaluación (responsabilidad de Ana Lopez). |
 
 ## 5. Acciones priorizadas hacia la entrega final
 

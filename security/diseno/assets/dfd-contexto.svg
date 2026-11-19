@@ -25,16 +25,22 @@
   <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
     <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
   </marker>
+  <marker id="arrowhead-23687B8C" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="#687B8C" stroke="#687B8C" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start-23687B8C" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="#687B8C" stroke="#687B8C" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
 </defs>
-<g class="subgraph" data-id="SYS" data-label="WebGoat + WebWolf (contenedor Docker)">
+<g class="subgraph" data-id="SYS" data-label="Sistema WebGoat + WebWolf · Docker">
   <rect x="480.33299999999997" y="61" width="258.45899999999995" height="113.80000000000001" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
   <rect x="480.33299999999997" y="61" width="258.45899999999995" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
-  <text x="492.33299999999997" y="75" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">WebGoat + WebWolf (contenedor Docker)</text>
+  <text x="492.33299999999997" y="75" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Sistema WebGoat + WebWolf · Docker</text>
 </g>
-<polyline class="edge" data-from="EST" data-to="P0" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="credenciales, payloads, archivos" points="210.99199999999996,85.43333333333335 254.67899999999997,85.43333333333335 254.67899999999997,115.25000000000003 462.33299999999997,115.25000000000003 462.33299999999997,122.93333333333334 496.33299999999997,122.93333333333334" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
-<polyline class="edge" data-from="P0" data-to="EST" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="lecciones, feedback, correo interno" points="722.7919999999999,122.93333333333334 756.7919999999999,122.93333333333334 756.7919999999999,51 245.76899999999995,51 245.76899999999995,73.13333333333334 210.99199999999996,73.13333333333334" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
-<polyline class="edge" data-from="ADM" data-to="P0" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="despliegue y configuración" points="264.344,164.36666666666667 285.567,164.36666666666667 285.567,148.55 462.33299999999997,148.55 462.33299999999997,140.86666666666667 496.33299999999997,140.86666666666667" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
-<polyline class="edge" data-from="P0" data-to="ADM" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="logs y métricas (actuator)" points="722.7919999999999,140.86666666666667 756.7919999999999,140.86666666666667 756.7919999999999,187.16666666666669 295.66499999999996,187.16666666666669 295.66499999999996,176.66666666666669 264.34399999999994,176.66666666666669" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="EST" data-to="P0" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="credenciales, payloads, archivos" points="210.99199999999996,85.43333333333335 254.67899999999997,85.43333333333335 254.67899999999997,115.25000000000003 462.33299999999997,115.25000000000003 462.33299999999997,122.93333333333334 496.33299999999997,122.93333333333334" fill="none" stroke="#687B8C" stroke-width="1.5px" marker-end="url(#arrowhead-23687B8C)" />
+<polyline class="edge" data-from="P0" data-to="EST" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="lecciones, feedback, correo interno" points="722.7919999999999,122.93333333333334 756.7919999999999,122.93333333333334 756.7919999999999,51 245.76899999999995,51 245.76899999999995,73.13333333333334 210.99199999999996,73.13333333333334" fill="none" stroke="#687B8C" stroke-width="1.5px" marker-end="url(#arrowhead-23687B8C)" />
+<polyline class="edge" data-from="ADM" data-to="P0" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="despliegue y configuración" points="264.344,164.36666666666667 285.567,164.36666666666667 285.567,148.55 462.33299999999997,148.55 462.33299999999997,140.86666666666667 496.33299999999997,140.86666666666667" fill="none" stroke="#687B8C" stroke-width="1.5px" marker-end="url(#arrowhead-23687B8C)" />
+<polyline class="edge" data-from="P0" data-to="ADM" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="logs y métricas (actuator)" points="722.7919999999999,140.86666666666667 756.7919999999999,140.86666666666667 756.7919999999999,187.16666666666669 295.66499999999996,187.16666666666669 295.66499999999996,176.66666666666669 264.34399999999994,176.66666666666669" fill="none" stroke="#687B8C" stroke-width="1.5px" marker-end="url(#arrowhead-23687B8C)" />
 <g class="edge-label" data-from="EST" data-to="P0" data-label="credenciales, payloads, archivos">
   <rect x="262.679" y="99.25000000000003" width="175.65400000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
   <text x="350.506" y="114.40000000000003" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">credenciales, payloads, archivos</text>
@@ -52,16 +58,16 @@
   <text x="370.99899999999997" y="186.3166666666667" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">logs y métricas (actuator)</text>
 </g>
 <g class="node" data-id="EST" data-label="Estudiante / Atacante" data-shape="rectangle">
-  <rect x="46.777" y="60.83333333333334" width="164.21499999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
-  <text x="128.8845" y="79.28333333333335" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Estudiante / Atacante</text>
+  <rect x="46.777" y="60.83333333333334" width="164.21499999999997" height="36.900000000000006" rx="0" ry="0" fill="#EEF2F7" stroke="#596F85" stroke-width="2px" />
+  <text x="128.8845" y="79.28333333333335" text-anchor="middle" font-size="13" font-weight="500" fill="#203040" dy="4.55">Estudiante / Atacante</text>
 </g>
 <g class="node" data-id="ADM" data-label="Administrador de la plataforma" data-shape="rectangle">
-  <rect x="46.777" y="152.0666666666667" width="217.56699999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
-  <text x="155.5605" y="170.5166666666667" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Administrador de la plataforma</text>
+  <rect x="46.777" y="152.0666666666667" width="217.56699999999998" height="36.900000000000006" rx="0" ry="0" fill="#EEF2F7" stroke="#596F85" stroke-width="2px" />
+  <text x="155.5605" y="170.5166666666667" text-anchor="middle" font-size="13" font-weight="500" fill="#203040" dy="4.55">Administrador de la plataforma</text>
 </g>
 <g class="node" data-id="P0" data-label="Plataforma de formación
-WebGoat :8080 · WebWolf :9090" data-shape="rectangle">
-  <rect x="496.33299999999997" y="105" width="226.45899999999997" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
-  <text x="609.5625" y="131.9" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="609.5625" dy="-3.9000000000000012">Plataforma de formación</tspan><tspan x="609.5625" dy="16.900000000000002">WebGoat :8080 · WebWolf :9090</tspan></text>
+WebGoat :8080 · WebWolf :9090" data-shape="stadium">
+  <rect x="496.33299999999997" y="105" width="226.45899999999997" height="53.800000000000004" rx="26.900000000000002" ry="26.900000000000002" fill="#EAF3ED" stroke="#557A61" stroke-width="2px" />
+  <text x="609.5625" y="131.9" text-anchor="middle" font-size="13" font-weight="500" fill="#23372A"><tspan x="609.5625" dy="-3.9000000000000012">Plataforma de formación</tspan><tspan x="609.5625" dy="16.900000000000002">WebGoat :8080 · WebWolf :9090</tspan></text>
 </g>
 </svg>

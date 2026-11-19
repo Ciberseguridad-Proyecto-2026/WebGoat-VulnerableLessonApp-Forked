@@ -1,0 +1,27 @@
+flowchart LR
+  subgraph TB4["TB4 · Contenedor Docker · publicación limitada a 127.0.0.1"]
+    P1(["TB1 · P1 Autenticación<br/>usuario y rol"])
+    P2(["TB1 · P2 Motor de lecciones<br/>catálogo y datos"])
+    P3(["TB1 · P3 Evaluación<br/>progreso e intentos"])
+    P4(["TB1 · P4 Mailbox<br/>correo interno"])
+    P7(["TB1 · P7 Administración<br/>usuarios"])
+    P6(["TB2 · P6 File Server<br/>archivos subidos"])
+    S1[("TB3 · S1 HSQLDB<br/>usuarios · progreso · correo")]
+    S2[("TB3 · S2 Filesystem<br/>uploads y archivos de datos")]
+    S3[("TB3 · S3 Logs<br/>salida estándar del contenedor")]
+  end
+
+  P1 -->|F8| S1
+  P2 -->|F9| S1
+  P3 -->|F10| S1
+  P4 -->|F11| S1
+  P6 -->|F12| S2
+  P7 -->|F13| S1
+  P3 -->|F14| S3
+
+  classDef process fill:#EAF3ED,stroke:#557A61,stroke-width:2px,color:#23372A
+  classDef store fill:#FFF3D9,stroke:#9B783B,stroke-width:2px,color:#3B321F
+  class P1,P2,P3,P4,P6,P7 process
+  class S1,S2,S3 store
+  style TB4 fill:#EEF1F4,stroke:#4F6273,stroke-width:3px,stroke-dasharray:8 5,color:#263746
+  linkStyle default stroke:#687B8C,stroke-width:1.5px

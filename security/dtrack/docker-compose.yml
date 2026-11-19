@@ -1,4 +1,4 @@
-# OWASP Dependency-Track (local, Fase 4 - Estudiante C)
+# OWASP Dependency-Track (local, Fase 4 - Christian Sosa)
 #
 # Based on the official v4 compose file (https://docs.dependencytrack.org/getting-started/deploy-docker/).
 # Version 4.14.x is pinned on purpose: Dependency-Track 5.x removed the NVD API 2.0 mirror

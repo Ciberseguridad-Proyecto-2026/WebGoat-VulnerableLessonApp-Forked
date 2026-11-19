@@ -1,9 +1,9 @@
 # DevSecOps pipeline - OWASP WebGoat fork (SSDLC)
 #
 # Jobs:
-#   secretos -> [Estudiante B] secret detection (gitleaks / Semgrep secrets)
-#   sast     -> [Estudiante B] Semgrep / CodeQL, SARIF artifact
-#   sca      -> [Estudiante C] Syft SBOM (CycloneDX) + Grype gate (fail on Critical)
+#   secretos -> [Ana lopez] secret detection (gitleaks / Semgrep secrets)
+#   sast     -> [Ana lopez] Semgrep / CodeQL, SARIF artifact
+#   sca      -> [Christian Sosa] Syft SBOM (CycloneDX) + Grype gate (fail on Critical)
 #
 # Every third-party action is pinned to a full commit SHA (tag in the trailing comment)
 # so Dependabot (github-actions ecosystem) can propose reviewed upgrades.

@@ -4,13 +4,19 @@
 |---|---|
 | Proyecto | Desarrollo Seguro de una Aplicación (SSDLC) — OWASP WebGoat |
 | Versión analizada | Fork `2026.6-SNAPSHOT` |
-| Responsable | Estudiante A — Fase 1 (diseño) |
+| Responsable | Pablo Siquinajay — Fase 1 (diseño) |
 | Fecha | 18 de noviembre de 2026 |
 | Documentos relacionados | [`dfd.md`](dfd.md) · [`clasificacion-datos.md`](clasificacion-datos.md) · [`requisitos-asvs.md`](requisitos-asvs.md) |
 
 ## 1. Propósito y alcance
 
-Este documento describe **cómo está construido y cómo se despliega** WebGoat, con el nivel de detalle necesario para: (a) identificar componentes, límites de confianza y superficies de ataque; (b) servir de base al DFD y al modelo de amenazas STRIDE (Fase 2); y (c) justificar los requisitos ASVS y los controles del pipeline.
+Este documento describe **cómo está construido y cómo se despliega** WebGoat, con el nivel de detalle necesario para: 
+
+  a.  identificar componentes, límites de confianza y superficies de ataque; 
+
+  b.  servir de base al DFD y al modelo de amenazas STRIDE (Fase 2); y 
+
+  c. justificar los requisitos ASVS y los controles del pipeline.
 
 El análisis se basa en el código fuente del fork (`pom.xml`, `src/main/java/org/owasp/webgoat/`, `Dockerfile`, archivos `application-*.properties`) y en la inspección de la aplicación publicada en Docker Hub (`webgoat/webgoat`) ejecutándose en local.
 
@@ -104,7 +110,7 @@ flowchart LR
 ```mermaid
 sequenceDiagram
   autonumber
-  actor E as Estudiante
+  actor E as Usuario
   participant N as Navegador
   participant S as Spring Security
   participant C as Controlador de lección

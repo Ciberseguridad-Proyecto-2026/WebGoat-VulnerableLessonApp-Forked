@@ -4,7 +4,7 @@
 |---|---|
 | Proyecto | Desarrollo Seguro de una Aplicación (SSDLC) — OWASP WebGoat |
 | Versión analizada | Fork `2026.6-SNAPSHOT` |
-| Responsable | Estudiante A — Fase 1 (diseño) |
+| Responsable | Pablo Siquinajay — Fase 1 (diseño) |
 | Fecha | 18 de noviembre de 2026 |
 | Base | [`arquitectura.md`](arquitectura.md) · [`dfd.md`](dfd.md) |
 
@@ -54,13 +54,13 @@ Identificar **qué información maneja WebGoat/WebWolf, dónde vive y qué nivel
 
 | Flujo (DFD) | Dato clasificado | Límite | Nivel |
 |---|---|---|---|
-| D1 | Credenciales | TB0 (navegador → contenedor) | Alta |
-| D2/D3 | Sesión y payloads | TB0 → TB1 | Alta / Media |
-| D5 | Peticiones capturadas (cookies) | TB2 (WebWolf) | Alta |
-| D6/D12 | Archivos subidos | TB2 → TB3 (filesystem) | Media-Alta |
-| D8/D13 | Usuarios y roles | TB1 ↔ TB3 (BD) | Alta |
-| D10/D11 | Progreso y correo | TB1 ↔ TB3 | Media |
-| D14 | Logs y trazas | TB1 → TB3 | Media |
+| F1 | Credenciales | TB0 (navegador → contenedor) | Alta |
+| F2/F3 | Sesión y payloads | TB0 → TB1 | Alta / Media |
+| F5 | Peticiones capturadas (cookies) | TB2 (WebWolf) | Alta |
+| F6/F12 | Archivos subidos | TB2 → TB3 (filesystem) | Media-Alta |
+| F8/F13 | Usuarios y roles | TB1 ↔ TB3 (BD) | Alta |
+| F10/F11 | Progreso y correo | TB1 ↔ TB3 | Media |
+| F14 | Logs y trazas | TB1 → TB3 | Media |
 
 ## 5. Controles actuales y brechas
 

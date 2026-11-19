@@ -1,6 +1,6 @@
 # Priorización de hallazgos SCA (Fase 4, paso C.4)
 
-**Responsable:** Estudiante C · **Fecha de corte:** 17-nov-2026
+**Responsable:** Christian Sosa · **Fecha de corte:** 17-nov-2026
 **Insumos:** SBOM [`sbom/sbom-webgoat.cdx.json`](sbom/sbom-webgoat.cdx.json) (Syft 1.57.2), Grype 0.122.0 (BD del 17-nov-2026),
 Dependency-Track 4.14.6 (NVD vía API + OSV + EPSS), FIRST EPSS API y catálogo CISA KEV `2026.11.17` (1 782 entradas).
 
