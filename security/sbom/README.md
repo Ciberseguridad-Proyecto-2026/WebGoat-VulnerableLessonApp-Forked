@@ -1,6 +1,6 @@
 # SBOM y escaneo SCA local: Syft + Grype (Fase 4, paso C.2)
 
-**Responsable:** Estudiante C · **Fecha de generación:** 17-nov-2026
+**Responsable:** Christian Sosa · **Fecha de generación:** 17-nov-2026
 
 ## Contenido de la carpeta
 

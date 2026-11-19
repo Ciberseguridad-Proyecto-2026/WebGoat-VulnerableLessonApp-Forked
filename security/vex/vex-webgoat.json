@@ -1,7 +1,7 @@
 {
   "@context": "https://openvex.dev/ns/v0.2.0",
   "@id": "https://github.com/Pablokill2004/WebGoat-VulnerableLessonApp-Forked/blob/main/security/vex/vex-webgoat.json",
-  "author": "Equipo SSDLC OWASP WebGoat - Estudiante C (Fase 4)",
+  "author": "Equipo SSDLC OWASP WebGoat - Christian Sosa (Fase 4)",
   "role": "Document Creator",
   "timestamp": "2026-11-17T23:30:00Z",
   "version": 1,

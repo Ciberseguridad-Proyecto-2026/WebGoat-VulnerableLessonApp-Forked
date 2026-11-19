@@ -1,6 +1,6 @@
 # OWASP Dependency-Track local con la API key del NVD (Fase 4, pasos C.1 y C.2)
 
-**Responsable:** Estudiante C · **Versión:** Dependency-Track **4.14.6** (API server + frontend) en Docker Desktop.
+**Responsable:** Christian Sosa · **Versión:** Dependency-Track **4.14.6** (API server + frontend) en Docker Desktop.
 
 ## Por qué Dependency-Track 4.14 y no 5.x
 

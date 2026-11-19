@@ -1,0 +1,40 @@
+flowchart LR
+  subgraph TB0["TB0 · Equipo cliente no confiable"]
+    EST["Estudiante / Atacante<br/>(navegador)"]
+    ADM["Administrador<br/>(consola Docker)"]
+  end
+
+  subgraph TB4["TB4 · Contenedor Docker · publicación limitada a 127.0.0.1"]
+    subgraph TB1["TB1 · Contexto WebGoat · :8080 /WebGoat"]
+      P1(["P1 Autenticación<br/>form login · OAuth2 · registro"])
+      P2(["P2 Motor de lecciones<br/>CourseConfiguration · Thymeleaf"])
+      P3(["P3 Evaluación de respuestas<br/>AssignmentEndpoint → AttackResult"])
+      P4(["P4 Mailbox<br/>GET/POST /mail"])
+      P7(["P7 Administración<br/>/service/admin/**"])
+    end
+
+    subgraph TB2["TB2 · Contexto WebWolf · :9090 /WebWolf"]
+      P5(["P5 Request Catcher<br/>/requests"])
+      P6(["P6 File Server<br/>/fileupload · /files"])
+    end
+  end
+
+  EST -->|F1| P1
+  EST -->|F2| P2
+  EST -->|F3| P3
+  EST -->|F4| P4
+  EST -->|F5| P5
+  EST -->|F6| P6
+  ADM -->|F7| P7
+  P1 -. "sesión y roles" .-> P2
+  P2 -. "invoca asignación" .-> P3
+  classDef actor fill:#EEF2F7,stroke:#596F85,stroke-width:2px,color:#203040
+  classDef process fill:#EAF3ED,stroke:#557A61,stroke-width:2px,color:#23372A
+  class EST,ADM actor
+  class P1,P2,P3,P4,P5,P6,P7 process
+
+  style TB0 fill:#EAF0F6,stroke:#506B85,stroke-width:3px,stroke-dasharray:6 4,color:#263746
+  style TB1 fill:#E6F0F8,stroke:#5C83A4,stroke-width:3px,stroke-dasharray:6 4,color:#263746
+  style TB2 fill:#E8F2E8,stroke:#64866A,stroke-width:3px,stroke-dasharray:6 4,color:#263746
+  style TB4 fill:#EEF1F4,stroke:#4F6273,stroke-width:3px,stroke-dasharray:8 5,color:#263746
+  linkStyle default stroke:#687B8C,stroke-width:1.5px

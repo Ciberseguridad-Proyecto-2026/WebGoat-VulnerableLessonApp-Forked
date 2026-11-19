@@ -1,9 +1,9 @@
-# Reporte de avance: Estudiante C (Fase 4: SCA, SBOM, Dependency-Track y VEX)
+# Reporte de avance: Christian Sosa (Fase 4: SCA, SBOM, Dependency-Track y VEX)
 
 **Proyecto:** SSDLC sobre OWASP WebGoat (fork `Pablokill2004/WebGoat-VulnerableLessonApp-Forked`)
 **Entrega:** Segunda entrega (avance obligatorio) · Miércoles 18-nov-2026 (Clase 8)
 **Fecha de corte de los datos:** 17-nov-2026
-**Rol:** Estudiante C, *Dependencias SCA, SBOM CycloneDX, Dependency-Track y VEX*
+**Rol:** Christian Sosa, *Dependencias SCA, SBOM CycloneDX, Dependency-Track y VEX*
 
 ---
 
@@ -50,7 +50,7 @@ conflictos entre ellas. Hay enlaces cruzados entre documentos, así que este ord
 3. **#4 Priorización + VEX.** Completa los enlaces de `security/sbom/README.md` y `security/dtrack/README.md` hacia
    `sca-priorizacion.md` y `vex/`.
 4. **Este reporte.**
-5. **#3 job `sca`, al final y coordinado con Estudiante B:**
+5. **#3 job `sca`, al final y coordinado con Ana Lopez:**
    - Si B ya tiene su `devsecops.yml` en `main`, se resuelve el conflicto copiando el bloque `sca:` bajo `jobs:`.
    - Antes de mergear, el equipo decide si `sca` será *required status check* (ver §6). Mientras XStream 1.4.5 siga en el
      proyecto, ese check queda en rojo **a propósito**.
@@ -167,13 +167,13 @@ Detalle completo en [`sca-priorizacion.md`](sca-priorizacion.md). Resumen:
 
 ## 5. Relación con el resto del equipo
 
-- **Estudiante B (CI y SAST):**
+- **Ana Lopez (CI y SAST):**
   - `sca` comparte el archivo `devsecops.yml` con `secretos` y `sast`, con el mismo encabezado (`pull_request` → `main`,
     `contents: read`, acciones por SHA).
   - SAST y SCA se complementan. SAST ve los fallos **en nuestro código**, por ejemplo cómo se llama a
     `XStream.fromXML`. SCA ve los fallos **en el código de terceros**: la versión 1.4.5 de XStream y sus CVEs.
   - El hallazgo de deserialización insegura de B y el CVE-2013-7285 de C son dos caras del mismo problema.
-- **Estudiante A (diseño):**
+- **Pablo Siquinajay (diseño):**
   - El endpoint de XStream cruza el límite de confianza navegador → Spring Boot del DFD.
   - El aislamiento propuesto como control compensatorio (despliegue solo en `127.0.0.1`) es coherente con la
     arquitectura Docker documentada por A.

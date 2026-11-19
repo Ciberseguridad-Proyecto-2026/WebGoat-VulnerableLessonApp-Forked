@@ -1,0 +1,17 @@
+flowchart TB
+  U["Analista / estudiante<br/>navegador en el equipo host"]
+  subgraph HOST["Equipo host (Windows) — solo loopback 127.0.0.1"]
+    P8080["Publicación Docker<br/>127.0.0.1:8080 → 8080/tcp"]
+    P9090["Publicación Docker<br/>127.0.0.1:9090 → 9090/tcp"]
+    subgraph DD["Docker Desktop · red bridge"]
+      subgraph C["Contenedor webgoat/webgoat (JVM)"]
+        APP["StartWebGoat<br/>contexto padre + 2 contextos hijos"]
+        RW["Capa escribible<br/>HSQLDB + archivos subidos"]
+      end
+    end
+  end
+  U -->|"http://127.0.0.1:8080/WebGoat"| P8080
+  U -->|"http://127.0.0.1:9090/WebWolf"| P9090
+  P8080 --> APP
+  P9090 --> APP
+  APP --> RW
